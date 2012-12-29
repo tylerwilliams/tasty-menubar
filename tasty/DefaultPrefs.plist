@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>watchItunes</key>
+	<true/>
+	<key>watchSpotify</key>
+	<true/>
+	<key>watchRdio</key>
+	<true/>
+	<key>isIncognito</key>
+	<false/>
+	<key>pollingIntervalSeconds</key>
+	<integer>5</integer>
+	<key>apiHost</key>
+	<string>localhost</string>
+	<key>apiPort</key>
+	<integer>8888</integer>
+	<key>apiVersion</key>
+	<string>1</string>
+</dict>
+</plist>

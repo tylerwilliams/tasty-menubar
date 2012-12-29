@@ -10,6 +10,9 @@
 		032D0CA1168C2464004EF5DB /* TasteLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 032D0CA0168C2464004EF5DB /* TasteLogger.m */; };
 		032D0CAC168E296B004EF5DB /* NICInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 032D0CA8168E28DE004EF5DB /* NICInfo.m */; };
 		032D0CAD168E296B004EF5DB /* NICInfoSummary.m in Sources */ = {isa = PBXBuildFile; fileRef = 032D0CAA168E28DE004EF5DB /* NICInfoSummary.m */; };
+		03A2E9C8168FAA4100210974 /* DefaultPrefs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03A2E9C7168FAA4100210974 /* DefaultPrefs.plist */; };
+		03A2E9CB168FAA5F00210974 /* PreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A2E9CA168FAA5F00210974 /* PreferencesController.m */; };
+		03C604E3168FAAC000A5AD99 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03C604E2168FAAC000A5AD99 /* Preferences.xib */; };
 		03E92962168BC711006ABA92 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E92961168BC711006ABA92 /* Cocoa.framework */; };
 		03E9296C168BC712006ABA92 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03E9296A168BC712006ABA92 /* InfoPlist.strings */; };
 		03E9296E168BC712006ABA92 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E9296D168BC712006ABA92 /* main.m */; };
@@ -26,9 +29,6 @@
 		03E9299B168BCD77006ABA92 /* SpotifyWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E92994168BCD77006ABA92 /* SpotifyWatcher.m */; };
 		03E9299C168BCD77006ABA92 /* Taste.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E92996168BCD77006ABA92 /* Taste.m */; };
 		03E9299E168BCDCE006ABA92 /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E9299D168BCDCE006ABA92 /* ScriptingBridge.framework */; };
-		03E929A3168BCE6D006ABA92 /* DefaultPrefs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03E9299F168BCE6D006ABA92 /* DefaultPrefs.plist */; };
-		03E929A4168BCE6D006ABA92 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03E929A0168BCE6D006ABA92 /* Preferences.xib */; };
-		03E929A5168BCE6D006ABA92 /* PreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E929A2168BCE6D006ABA92 /* PreferencesController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +38,10 @@
 		032D0CA9168E28DE004EF5DB /* NICInfoSummary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NICInfoSummary.h; sourceTree = "<group>"; };
 		032D0CAA168E28DE004EF5DB /* NICInfoSummary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NICInfoSummary.m; sourceTree = "<group>"; };
 		032D0CAB168E28DE004EF5DB /* NICInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NICInfo.h; sourceTree = "<group>"; };
+		03A2E9C7168FAA4100210974 /* DefaultPrefs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefaultPrefs.plist; sourceTree = "<group>"; };
+		03A2E9C9168FAA5F00210974 /* PreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesController.h; sourceTree = "<group>"; };
+		03A2E9CA168FAA5F00210974 /* PreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesController.m; sourceTree = "<group>"; };
+		03C604E2168FAAC000A5AD99 /* Preferences.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
 		03E9295D168BC711006ABA92 /* tasty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tasty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03E92961168BC711006ABA92 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		03E92964168BC711006ABA92 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -71,10 +75,6 @@
 		03E92995168BCD77006ABA92 /* Taste.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Taste.h; sourceTree = "<group>"; };
 		03E92996168BCD77006ABA92 /* Taste.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Taste.m; sourceTree = "<group>"; };
 		03E9299D168BCDCE006ABA92 /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = System/Library/Frameworks/ScriptingBridge.framework; sourceTree = SDKROOT; };
-		03E9299F168BCE6D006ABA92 /* DefaultPrefs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = DefaultPrefs.plist; path = "../../tasty-menubar-cocoa/tasty-menubar-cocoa/DefaultPrefs.plist"; sourceTree = "<group>"; };
-		03E929A0168BCE6D006ABA92 /* Preferences.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Preferences.xib; path = "../../tasty-menubar-cocoa/tasty-menubar-cocoa/Preferences.xib"; sourceTree = "<group>"; };
-		03E929A1168BCE6D006ABA92 /* PreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreferencesController.h; path = "../../tasty-menubar-cocoa/tasty-menubar-cocoa/PreferencesController.h"; sourceTree = "<group>"; };
-		03E929A2168BCE6D006ABA92 /* PreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreferencesController.m; path = "../../tasty-menubar-cocoa/tasty-menubar-cocoa/PreferencesController.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,7 +169,7 @@
 		03E92968168BC711006ABA92 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				03E9299F168BCE6D006ABA92 /* DefaultPrefs.plist */,
+				03A2E9C7168FAA4100210974 /* DefaultPrefs.plist */,
 				03E92984168BCCCB006ABA92 /* en_menu.png */,
 				03E92985168BCCCB006ABA92 /* en_powered.png */,
 				03E92969168BC711006ABA92 /* tasty-Info.plist */,
@@ -183,12 +183,12 @@
 		03E929A6168BCEE5006ABA92 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				03A2E9C9168FAA5F00210974 /* PreferencesController.h */,
+				03A2E9CA168FAA5F00210974 /* PreferencesController.m */,
 				032D0CA6168E28BE004EF5DB /* NICInfo */,
 				032D0C9D168C234A004EF5DB /* AppWatchers */,
 				03E9297E168BC74D006ABA92 /* MenuController.h */,
 				03E9297F168BC74D006ABA92 /* MenuController.m */,
-				03E929A1168BCE6D006ABA92 /* PreferencesController.h */,
-				03E929A2168BCE6D006ABA92 /* PreferencesController.m */,
 				03E92988168BCD76006ABA92 /* AppWatcher.h */,
 				03E92989168BCD76006ABA92 /* AppWatcher.m */,
 				03E92995168BCD77006ABA92 /* Taste.h */,
@@ -204,7 +204,7 @@
 		03E929A7168BCF04006ABA92 /* Interfaces */ = {
 			isa = PBXGroup;
 			children = (
-				03E929A0168BCE6D006ABA92 /* Preferences.xib */,
+				03C604E2168FAAC000A5AD99 /* Preferences.xib */,
 				03E92976168BC712006ABA92 /* MainMenu.xib */,
 				03E92980168BC74D006ABA92 /* MenuController.xib */,
 			);
@@ -267,8 +267,8 @@
 				03E92982168BC74D006ABA92 /* MenuController.xib in Resources */,
 				03E92986168BCCCB006ABA92 /* en_menu.png in Resources */,
 				03E92987168BCCCB006ABA92 /* en_powered.png in Resources */,
-				03E929A3168BCE6D006ABA92 /* DefaultPrefs.plist in Resources */,
-				03E929A4168BCE6D006ABA92 /* Preferences.xib in Resources */,
+				03A2E9C8168FAA4100210974 /* DefaultPrefs.plist in Resources */,
+				03C604E3168FAAC000A5AD99 /* Preferences.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,8 +290,8 @@
 				03E9299A168BCD77006ABA92 /* RdioWatcher.m in Sources */,
 				03E9299B168BCD77006ABA92 /* SpotifyWatcher.m in Sources */,
 				03E9299C168BCD77006ABA92 /* Taste.m in Sources */,
-				03E929A5168BCE6D006ABA92 /* PreferencesController.m in Sources */,
 				032D0CA1168C2464004EF5DB /* TasteLogger.m in Sources */,
+				03A2E9CB168FAA5F00210974 /* PreferencesController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
