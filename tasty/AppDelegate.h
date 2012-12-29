@@ -8,8 +8,22 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface AppDelegate : NSObject <NSApplicationDelegate>
+@class MenuController;
+@class PreferencesController;
+@class AppWatcher;
+@class TasteLogger;
 
-@property (assign) IBOutlet NSWindow *window;
+@interface AppDelegate : NSObject <NSApplicationDelegate> {
+	MenuController				*menuController;
+	PreferencesController       *preferencesController;
+    AppWatcher                  *appWatcher;
+    TasteLogger                     *tasteLogger;
+}
+
+@property (strong) MenuController *menuController;
+@property (strong) PreferencesController *preferencesController;
+@property (strong) AppWatcher *appWatcher;
+@property (strong) TasteLogger *tasteLogger;
 
 @end
+
