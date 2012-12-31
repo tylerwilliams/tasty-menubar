@@ -26,15 +26,55 @@
         preferencesController = p;
         appWatcher = a;
         tasteLogger = n;
+        [self detectFirstRun];
     }
     return self;
+}
+
+- (void) detectFirstRun {
+    // Get current version ("Bundle Version") from the default Info.plist file
+    NSString *currentVersion = (NSString*)[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
+    NSArray *prevStartupVersions = [[NSUserDefaults standardUserDefaults] arrayForKey:@"prevStartupVersions"];
+    if (prevStartupVersions == nil)
+    {
+        // Starting up for first time with NO pre-existing installs (e.g., fresh
+        // install of some version)
+        [self firstStartAfterFreshInstall];
+        [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObject:currentVersion] forKey:@"prevStartupVersions"];
+    }
+    else
+    {
+        if (![prevStartupVersions containsObject:currentVersion])
+        {
+            // Starting up for first time with this version of the app. This
+            // means a different version of the app was alread installed once
+            // and started.
+            [self firstStartAfterUpgradeDowngrade];
+            NSMutableArray *updatedPrevStartVersions = [NSMutableArray arrayWithArray:prevStartupVersions];
+            [updatedPrevStartVersions addObject:currentVersion];
+            [[NSUserDefaults standardUserDefaults] setObject:updatedPrevStartVersions forKey:@"prevStartupVersions"];
+        }
+    }
+    
+    // Save changes to disk
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+-(void) firstStartAfterUpgradeDowngrade {
+    NSLog(@"firstStartAfterUpgradeDowngrade");
+}
+
+-(void) firstStartAfterFreshInstall {
+    NSLog(@"firstStartAfterFreshInstall");
 }
 
 -(IBAction)showPreferences:(id)sender{
     if(!preferencesController) {
         preferencesController = [[PreferencesController alloc] initWithWindowNibName:@"Preferences"];
     }
-    [preferencesController showWindow:self];
+    [preferencesController showWindow:preferencesController];
+    [[NSApp mainWindow] makeKeyAndOrderFront:preferencesController];
+    
 }
 
 - (NSString *)windowNibName {
@@ -46,6 +86,16 @@
     // we'll get a message when apps have been polled and we can update
     // the menu item then
     [appWatcher checkNowPlaying];
+    // set our inverse icon
+    NSBundle *bundle = [NSBundle mainBundle];
+    [self.statusBar setImage:[[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"s150_inverse" ofType:@"png"]]];
+
+}
+
+-(void) menuDidClose:(NSMenu *) theMenu {
+    // reset to our normal icon
+    NSBundle *bundle = [NSBundle mainBundle];
+    [self.statusBar setImage:[[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"s150" ofType:@"png"]]];
 }
 
 -(IBAction) openMyTastyHomePage:(id)sender {
@@ -59,7 +109,7 @@
     
     // set the menu bar icon
     NSBundle *bundle = [NSBundle mainBundle];
-    [self.statusBar setImage:[[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"en_menu" ofType:@"png"]]];
+    [self.statusBar setImage:[[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"s150" ofType:@"png"]]];
     [self.statusBar setMenu:self.statusMenu];
     [self.statusBar.menu setDelegate:self];
     [self.statusBar setHighlightMode:YES];

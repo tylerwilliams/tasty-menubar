@@ -30,7 +30,6 @@
 -(void)disableWatcher:(NSString *)watcherClassName;
 -(void)enableOrDisableWatcherForPrefKey:(NSString *)prefKey;
 -(void)handleTimerCallback:(NSTimer*)theTimer;
--(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context;
 -(void)checkNowPlaying;
 -(void)tasteSong:(Taste *)taste;
 -(Taste *) nowPlaying;

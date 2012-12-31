@@ -14,8 +14,18 @@
     NSString *hostName;
     NSInteger portNumber;
     PreferencesController *preferencesController;
+    NSMutableData *receivedData;
+    NSNumber *isLogging;
 }
 
--(id) initWithPrefsController:(PreferencesController*)p;
+- (id) initWithPrefsController:(PreferencesController*)p;
+- (NSData *) encodeDictionary:(NSDictionary*)dictionary;
 - (void) openTastePage;
+- (void) handleTasteMessage:(NSNotification *)notification;
+- (void) connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response;
+- (void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)data;
+- (void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error;
+- (void) connectionDidFinishLoading:(NSURLConnection *)connection;
+- (void) pushTaste:(Taste *)t;
+
 @end

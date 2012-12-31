@@ -7,11 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0317BDD616913E190098A17F /* enicon_noretina.iconset in Resources */ = {isa = PBXBuildFile; fileRef = 0317BDD516913E190098A17F /* enicon_noretina.iconset */; };
+		0317BDEC169148F20098A17F /* s150.png in Resources */ = {isa = PBXBuildFile; fileRef = 0317BDEB169148F20098A17F /* s150.png */; };
+		0317BDEE169149860098A17F /* s150_inverse.png in Resources */ = {isa = PBXBuildFile; fileRef = 0317BDED169149860098A17F /* s150_inverse.png */; };
+		0317BDF61691DDE70098A17F /* LaunchAtLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0317BDF41691DDE70098A17F /* LaunchAtLoginController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		0317BDFC1691F2A60098A17F /* NSString+SymlinksAndAliases.m in Sources */ = {isa = PBXBuildFile; fileRef = 0317BDF91691F2A60098A17F /* NSString+SymlinksAndAliases.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		0317BDFD1691F2A60098A17F /* PFMoveApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 0317BDFB1691F2A60098A17F /* PFMoveApplication.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		0317BE031691F46F0098A17F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0317BE021691F46F0098A17F /* Security.framework */; };
+		0317BE061691F6E70098A17F /* MoveProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0317BE051691F6E70098A17F /* MoveProxy.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		032D0CA1168C2464004EF5DB /* TasteLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 032D0CA0168C2464004EF5DB /* TasteLogger.m */; };
-		032D0CAC168E296B004EF5DB /* NICInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 032D0CA8168E28DE004EF5DB /* NICInfo.m */; };
-		032D0CAD168E296B004EF5DB /* NICInfoSummary.m in Sources */ = {isa = PBXBuildFile; fileRef = 032D0CAA168E28DE004EF5DB /* NICInfoSummary.m */; };
+		032D0CAC168E296B004EF5DB /* NICInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 032D0CA8168E28DE004EF5DB /* NICInfo.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		032D0CAD168E296B004EF5DB /* NICInfoSummary.m in Sources */ = {isa = PBXBuildFile; fileRef = 032D0CAA168E28DE004EF5DB /* NICInfoSummary.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		03A2E9C8168FAA4100210974 /* DefaultPrefs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03A2E9C7168FAA4100210974 /* DefaultPrefs.plist */; };
 		03A2E9CB168FAA5F00210974 /* PreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A2E9CA168FAA5F00210974 /* PreferencesController.m */; };
+		03AF10F6169116910069A172 /* ASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 03AF10F4169116910069A172 /* ASLLogger.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		03AF10FC169136120069A172 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = 03AF10FB169136120069A172 /* TODO */; };
 		03C604E3168FAAC000A5AD99 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03C604E2168FAAC000A5AD99 /* Preferences.xib */; };
 		03E92962168BC711006ABA92 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E92961168BC711006ABA92 /* Cocoa.framework */; };
 		03E9296C168BC712006ABA92 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03E9296A168BC712006ABA92 /* InfoPlist.strings */; };
@@ -20,7 +30,6 @@
 		03E92978168BC712006ABA92 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03E92976168BC712006ABA92 /* MainMenu.xib */; };
 		03E92981168BC74D006ABA92 /* MenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E9297F168BC74D006ABA92 /* MenuController.m */; };
 		03E92982168BC74D006ABA92 /* MenuController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03E92980168BC74D006ABA92 /* MenuController.xib */; };
-		03E92986168BCCCB006ABA92 /* en_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 03E92984168BCCCB006ABA92 /* en_menu.png */; };
 		03E92987168BCCCB006ABA92 /* en_powered.png in Resources */ = {isa = PBXBuildFile; fileRef = 03E92985168BCCCB006ABA92 /* en_powered.png */; };
 		03E92997168BCD77006ABA92 /* AppWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E92989168BCD76006ABA92 /* AppWatcher.m */; };
 		03E92998168BCD77006ABA92 /* GenericWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E9298B168BCD76006ABA92 /* GenericWatcher.m */; };
@@ -32,6 +41,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0317BDD516913E190098A17F /* enicon_noretina.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; name = enicon_noretina.iconset; path = ../enicon_noretina.iconset; sourceTree = "<group>"; };
+		0317BDEB169148F20098A17F /* s150.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = s150.png; sourceTree = "<group>"; };
+		0317BDED169149860098A17F /* s150_inverse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = s150_inverse.png; sourceTree = "<group>"; };
+		0317BDF41691DDE70098A17F /* LaunchAtLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchAtLoginController.m; sourceTree = "<group>"; };
+		0317BDF51691DDE70098A17F /* LaunchAtLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchAtLoginController.h; sourceTree = "<group>"; };
+		0317BDF81691F2A60098A17F /* NSString+SymlinksAndAliases.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SymlinksAndAliases.h"; sourceTree = "<group>"; };
+		0317BDF91691F2A60098A17F /* NSString+SymlinksAndAliases.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SymlinksAndAliases.m"; sourceTree = "<group>"; };
+		0317BDFA1691F2A60098A17F /* PFMoveApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMoveApplication.h; sourceTree = "<group>"; };
+		0317BDFB1691F2A60098A17F /* PFMoveApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMoveApplication.m; sourceTree = "<group>"; };
+		0317BE021691F46F0098A17F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		0317BE041691F6E70098A17F /* MoveProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveProxy.h; sourceTree = "<group>"; };
+		0317BE051691F6E70098A17F /* MoveProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoveProxy.m; sourceTree = "<group>"; };
 		032D0C9F168C2463004EF5DB /* TasteLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TasteLogger.h; sourceTree = "<group>"; };
 		032D0CA0168C2464004EF5DB /* TasteLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TasteLogger.m; sourceTree = "<group>"; };
 		032D0CA8168E28DE004EF5DB /* NICInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NICInfo.m; sourceTree = "<group>"; };
@@ -41,6 +62,9 @@
 		03A2E9C7168FAA4100210974 /* DefaultPrefs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefaultPrefs.plist; sourceTree = "<group>"; };
 		03A2E9C9168FAA5F00210974 /* PreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesController.h; sourceTree = "<group>"; };
 		03A2E9CA168FAA5F00210974 /* PreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesController.m; sourceTree = "<group>"; };
+		03AF10F4169116910069A172 /* ASLLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASLLogger.m; sourceTree = "<group>"; };
+		03AF10F5169116910069A172 /* ASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASLLogger.h; sourceTree = "<group>"; };
+		03AF10FB169136120069A172 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
 		03C604E2168FAAC000A5AD99 /* Preferences.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
 		03E9295D168BC711006ABA92 /* tasty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tasty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03E92961168BC711006ABA92 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -57,7 +81,6 @@
 		03E9297E168BC74D006ABA92 /* MenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuController.h; sourceTree = "<group>"; };
 		03E9297F168BC74D006ABA92 /* MenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuController.m; sourceTree = "<group>"; };
 		03E92980168BC74D006ABA92 /* MenuController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuController.xib; sourceTree = "<group>"; };
-		03E92984168BCCCB006ABA92 /* en_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = en_menu.png; sourceTree = "<group>"; };
 		03E92985168BCCCB006ABA92 /* en_powered.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = en_powered.png; sourceTree = "<group>"; };
 		03E92988168BCD76006ABA92 /* AppWatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppWatcher.h; sourceTree = "<group>"; };
 		03E92989168BCD76006ABA92 /* AppWatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppWatcher.m; sourceTree = "<group>"; };
@@ -82,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0317BE031691F46F0098A17F /* Security.framework in Frameworks */,
 				03E9299E168BCDCE006ABA92 /* ScriptingBridge.framework in Frameworks */,
 				03E92962168BC711006ABA92 /* Cocoa.framework in Frameworks */,
 			);
@@ -90,6 +114,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0317BDF31691DD900098A17F /* LaunchAtLogin */ = {
+			isa = PBXGroup;
+			children = (
+				0317BDF41691DDE70098A17F /* LaunchAtLoginController.m */,
+				0317BDF51691DDE70098A17F /* LaunchAtLoginController.h */,
+			);
+			name = LaunchAtLogin;
+			sourceTree = "<group>";
+		};
+		0317BDF71691F2590098A17F /* MoveToApplications */ = {
+			isa = PBXGroup;
+			children = (
+				0317BDF81691F2A60098A17F /* NSString+SymlinksAndAliases.h */,
+				0317BDF91691F2A60098A17F /* NSString+SymlinksAndAliases.m */,
+				0317BDFA1691F2A60098A17F /* PFMoveApplication.h */,
+				0317BDFB1691F2A60098A17F /* PFMoveApplication.m */,
+			);
+			name = MoveToApplications;
+			sourceTree = "<group>";
+		};
 		032D0C9D168C234A004EF5DB /* AppWatchers */ = {
 			isa = PBXGroup;
 			children = (
@@ -119,9 +163,19 @@
 			name = NICInfo;
 			sourceTree = "<group>";
 		};
+		03AF10F2169116800069A172 /* ASL */ = {
+			isa = PBXGroup;
+			children = (
+				03AF10F4169116910069A172 /* ASLLogger.m */,
+				03AF10F5169116910069A172 /* ASLLogger.h */,
+			);
+			name = ASL;
+			sourceTree = "<group>";
+		};
 		03E92952168BC711006ABA92 = {
 			isa = PBXGroup;
 			children = (
+				0317BE021691F46F0098A17F /* Security.framework */,
 				03E9299D168BCDCE006ABA92 /* ScriptingBridge.framework */,
 				03E92967168BC711006ABA92 /* tasty */,
 				03E92960168BC711006ABA92 /* Frameworks */,
@@ -162,6 +216,9 @@
 				03E929A7168BCF04006ABA92 /* Interfaces */,
 				03E929A6168BCEE5006ABA92 /* Classes */,
 				03E92968168BC711006ABA92 /* Supporting Files */,
+				03AF10FB169136120069A172 /* TODO */,
+				0317BE041691F6E70098A17F /* MoveProxy.h */,
+				0317BE051691F6E70098A17F /* MoveProxy.m */,
 			);
 			path = tasty;
 			sourceTree = "<group>";
@@ -169,8 +226,10 @@
 		03E92968168BC711006ABA92 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0317BDD516913E190098A17F /* enicon_noretina.iconset */,
+				0317BDED169149860098A17F /* s150_inverse.png */,
+				0317BDEB169148F20098A17F /* s150.png */,
 				03A2E9C7168FAA4100210974 /* DefaultPrefs.plist */,
-				03E92984168BCCCB006ABA92 /* en_menu.png */,
 				03E92985168BCCCB006ABA92 /* en_powered.png */,
 				03E92969168BC711006ABA92 /* tasty-Info.plist */,
 				03E9296A168BC712006ABA92 /* InfoPlist.strings */,
@@ -183,6 +242,9 @@
 		03E929A6168BCEE5006ABA92 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				0317BDF71691F2590098A17F /* MoveToApplications */,
+				0317BDF31691DD900098A17F /* LaunchAtLogin */,
+				03AF10F2169116800069A172 /* ASL */,
 				03A2E9C9168FAA5F00210974 /* PreferencesController.h */,
 				03A2E9CA168FAA5F00210974 /* PreferencesController.m */,
 				032D0CA6168E28BE004EF5DB /* NICInfo */,
@@ -214,9 +276,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		03E9295C168BC711006ABA92 /* tasty */ = {
+		03E9295C168BC711006ABA92 /* Tasty */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 03E9297B168BC712006ABA92 /* Build configuration list for PBXNativeTarget "tasty" */;
+			buildConfigurationList = 03E9297B168BC712006ABA92 /* Build configuration list for PBXNativeTarget "Tasty" */;
 			buildPhases = (
 				03E92959168BC711006ABA92 /* Sources */,
 				03E9295A168BC711006ABA92 /* Frameworks */,
@@ -226,7 +288,7 @@
 			);
 			dependencies = (
 			);
-			name = tasty;
+			name = Tasty;
 			productName = tasty;
 			productReference = 03E9295D168BC711006ABA92 /* tasty.app */;
 			productType = "com.apple.product-type.application";
@@ -252,7 +314,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				03E9295C168BC711006ABA92 /* tasty */,
+				03E9295C168BC711006ABA92 /* Tasty */,
 			);
 		};
 /* End PBXProject section */
@@ -265,10 +327,13 @@
 				03E9296C168BC712006ABA92 /* InfoPlist.strings in Resources */,
 				03E92978168BC712006ABA92 /* MainMenu.xib in Resources */,
 				03E92982168BC74D006ABA92 /* MenuController.xib in Resources */,
-				03E92986168BCCCB006ABA92 /* en_menu.png in Resources */,
 				03E92987168BCCCB006ABA92 /* en_powered.png in Resources */,
 				03A2E9C8168FAA4100210974 /* DefaultPrefs.plist in Resources */,
 				03C604E3168FAAC000A5AD99 /* Preferences.xib in Resources */,
+				03AF10FC169136120069A172 /* TODO in Resources */,
+				0317BDD616913E190098A17F /* enicon_noretina.iconset in Resources */,
+				0317BDEC169148F20098A17F /* s150.png in Resources */,
+				0317BDEE169149860098A17F /* s150_inverse.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +357,11 @@
 				03E9299C168BCD77006ABA92 /* Taste.m in Sources */,
 				032D0CA1168C2464004EF5DB /* TasteLogger.m in Sources */,
 				03A2E9CB168FAA5F00210974 /* PreferencesController.m in Sources */,
+				03AF10F6169116910069A172 /* ASLLogger.m in Sources */,
+				0317BDF61691DDE70098A17F /* LaunchAtLoginController.m in Sources */,
+				0317BDFC1691F2A60098A17F /* NSString+SymlinksAndAliases.m in Sources */,
+				0317BDFD1691F2A60098A17F /* PFMoveApplication.m in Sources */,
+				0317BE061691F6E70098A17F /* MoveProxy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,6 +447,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "tasty/tasty-Prefix.pch";
 				INFOPLIST_FILE = "tasty/tasty-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -389,6 +460,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "tasty/tasty-Prefix.pch";
 				INFOPLIST_FILE = "tasty/tasty-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -406,7 +478,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		03E9297B168BC712006ABA92 /* Build configuration list for PBXNativeTarget "tasty" */ = {
+		03E9297B168BC712006ABA92 /* Build configuration list for PBXNativeTarget "Tasty" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				03E9297C168BC712006ABA92 /* Debug */,

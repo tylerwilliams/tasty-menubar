@@ -21,16 +21,16 @@
 -(Taste *) poll {
     RdioApplication *app = [SBApplication applicationWithBundleIdentifier:appIdent];
     if (!app) {
-        NSLog(@"app (%@) is null (not installed?)", appIdent);
+//        NSLog(@"app (%@) is null (not installed?)", appIdent);
         return nil;
     }
     if (![app isRunning]) {
-        NSLog(@"app (%@) is not running", appIdent);
+//        NSLog(@"app (%@) is not running", appIdent);
         return nil;
     }
     //    NSLog(@"polling %@", app);
     if (RdioEPSSPlaying != [app playerState]) {
-        NSLog(@"app (%@) is paused", appIdent);
+//        NSLog(@"app (%@) is paused", appIdent);
         return nil;
     }
     

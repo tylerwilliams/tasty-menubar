@@ -18,8 +18,8 @@
 
 @property (readonly) NSArray* nicInfos;
 
-+ (NICInfoSummary *)infoSummary;
-+ (NICInfoSummary *)refreshInfoSummary;
+//+ (NICInfoSummary *)infoSummary;
+//+ (NICInfoSummary *)refreshInfoSummary;
 
 // Let me have all NIC information on this device!
 - (NICInfo *)findNICInfo:(NSString*)interface_name;
@@ -42,15 +42,15 @@
 - (bool)isPersonalHotspotActivated;
 - (bool)is3GConnected;
 
-- (NSArray *)broadcastIPs;
+//- (NSArray *)broadcastIPs;
 
 
 // CAUTION : valid for only IP v4
 // return any NicInfo that IP address is assigned
-- (NICInfo *)anyAvailableNicInfo;
+//- (NICInfo *)anyAvailableNicInfo;
 // return NICs assigned IPv4 IP address
-- (NSArray *)availableNicInfos;
+//- (NSArray *)availableNicInfos;
 // return IP info that vaild IP v4 address is assigned
-- (NSArray *)availableIPInfov4;
+//- (NSArray *)availableIPInfov4;
 
 @end

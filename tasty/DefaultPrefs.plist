@@ -8,7 +8,7 @@
 	<true/>
 	<key>watchRdio</key>
 	<true/>
-	<key>isIncognito</key>
+	<key>incognitoMode</key>
 	<false/>
 	<key>pollingIntervalSeconds</key>
 	<integer>5</integer>

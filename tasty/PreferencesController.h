@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "NICInfoSummary.h"
+#import "LaunchAtLoginController.h"
 
 @interface PreferencesController : NSWindowController {
     NSUserDefaults *preferences;

@@ -77,7 +77,7 @@
 }
 
 -(void)enableOrDisableWatcherForPrefKey:(NSString *)prefKey {
-    Boolean enabled = (Boolean)[[NSUserDefaults standardUserDefaults] objectForKey:prefKey];
+    Boolean enabled = (Boolean)[prefController getUserDefault:prefKey];
     NSString *watcherClassName;
     if ([prefKey isEqualToString:@"watchItunes"]) {
         watcherClassName = @"iTunesWatcher";
@@ -165,20 +165,20 @@
     if (nil == [activeTastes objectForKey:nowPlaying]) {
         for (Taste* activeTaste in activeTastes.allKeys) {
             double playedSeconds = [[activeTastes objectForKey:activeTaste] doubleValue];
-            NSLog(@"activeTaste: %@, playedSeconds: %f", activeTaste, playedSeconds);
+//            NSLog(@"activeTaste: %@, playedSeconds: %f", activeTaste, playedSeconds);
             double playedPercentage = (playedSeconds / [[activeTaste duration] floatValue]);
-            NSLog(@"playedPercentage: %f (%f / %f)", playedPercentage, playedSeconds, [[activeTaste duration] floatValue]);
+//            NSLog(@"playedPercentage: %f (%f / %f)", playedPercentage, playedSeconds, [[activeTaste duration] floatValue]);
             [activeTaste print];
             if (playedPercentage > PLAYED_THRESHOLD_PERCENTAGE || playedSeconds > PLAYED_THRESHOLD_SECONDS) {
                 [self tasteSong:activeTaste];
-                NSLog(@"scrobble: %@", activeTaste);
+//                NSLog(@"scrobble: %@", activeTaste);
             } else {
                 if (playedSeconds > SKIPPED_THRESHOLD_SECONDS) {
                     [activeTaste setSkip:[NSNumber numberWithBool:TRUE]];
                     [self tasteSong:activeTaste];
-                    NSLog(@"scrobble (_SKIP_): %@", activeTaste);
+//                    NSLog(@"scrobble (_SKIP_): %@", activeTaste);
                 } else {
-                    NSLog(@"ignoring (skipped too fast): %@", activeTaste);
+//                    NSLog(@"ignoring (skipped too fast): %@", activeTaste);
                 }
             }
             [activeTastes removeObjectForKey:activeTaste];
@@ -187,9 +187,9 @@
     }
     else {
         double playedSeconds = [[activeTastes objectForKey:nowPlaying] doubleValue];
-        NSLog(@"activeTaste: %@, playedSeconds: %f", nowPlaying, playedSeconds);
+//        NSLog(@"activeTaste: %@, playedSeconds: %f", nowPlaying, playedSeconds);
         if (playedSeconds > [[nowPlaying duration] floatValue]) {
-            NSLog(@"scrobble (repeat!): %@", nowPlaying);
+//            NSLog(@"scrobble (repeat!): %@", nowPlaying);
             [self tasteSong:nowPlaying];
             playedSeconds -= [[nowPlaying duration] floatValue];
         }

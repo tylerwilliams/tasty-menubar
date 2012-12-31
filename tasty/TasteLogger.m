@@ -23,7 +23,7 @@
     return self;
 }
 
-- (NSData*)encodeDictionary:(NSDictionary*)dictionary {
+- (NSData *) encodeDictionary:(NSDictionary*)dictionary {
     NSMutableArray *parts = [[NSMutableArray alloc] init];
     for (NSString *key in dictionary) {
         NSString *encodedValue = [[dictionary objectForKey:key] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -42,35 +42,58 @@
                            [preferencesController getUserDefault:@"apiVersion"],
                            [preferencesController macAddressString]
                            ];
-    
-    // generate url
     NSURL *url = [ [ NSURL alloc ] initWithString:urlString];
     [[NSWorkspace sharedWorkspace] openURL:url];
 }
 
 - (void)handleTasteMessage:(NSNotification *)notification {
-    NSDictionary *userInfo = notification.userInfo;
-    Taste *toPush = [userInfo objectForKey:@"taste"];
-    [self pushTaste:toPush];
+    if ([preferencesController getUserDefault:@"incognitoMode"]) { 
+        NSDictionary *userInfo = notification.userInfo;
+        Taste *toPush = [userInfo objectForKey:@"taste"];
+        [self pushTaste:toPush];
+    }
 }
 
-- (Boolean) pushTaste:(Taste *)t {
-    NSString *urlString = [NSString stringWithFormat:@"http://%@:%li/api/%@/%@/new",
+/*
+  NSURLConnection things
+*/
+
+- (void) connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+    NSLog(@"didReceiveResponse");
+    [receivedData setLength:0];
+}
+
+- (void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    NSLog(@"didReceiveData");
+    [receivedData appendData:data];
+}
+
+- (void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    NSLog(@"Connection failed! Error - %@ %@",
+          [error localizedDescription],
+          [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]);
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    NSError *jsonDecodeError;
+    NSMutableDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:receivedData options:kNilOptions error:&jsonDecodeError];
+    // TODO: do something with this: either mark it played in our DB or retry
+    NSLog(@"%@", jsonDictionary);
+}
+
+
+- (void) pushTaste:(Taste *)t {
+    NSString *urlString = [NSString stringWithFormat:@"http://%@:%li/api/%@/%@/tastes/new",
                            [preferencesController getUserDefault:@"apiHost"],
                            [[preferencesController getUserDefault:@"apiPort"] integerValue],
                            [preferencesController getUserDefault:@"apiVersion"],
                            [preferencesController macAddressString]
                            ];
     NSString *jsonString = [t jsonRepresentation];
-    NSLog(@"urlString: %@", urlString);
-    NSLog(@"jsonString: %@", jsonString);
-    
     NSURL *url = [NSURL URLWithString:urlString];
-    
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                        timeoutInterval:60.0];
-    
     NSData *requestData = [NSData dataWithBytes:[jsonString UTF8String] length:[jsonString length]];
     
     [request setHTTPMethod:@"POST"];
@@ -82,11 +105,9 @@
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     
     if (connection) {
-//        NSData *receivedData = [NSMutableData new];
-//        NSString *jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-//        NSDictionary *jsonDict = [jsonString JSONValue];
-//        NSDictionary *question = [jsonDict objectForKey:@"question"];
+        receivedData = [NSMutableData new];
+    } else {
+        NSLog(@"unable to make HTTP request");
     }
-    return TRUE;
 }
 @end

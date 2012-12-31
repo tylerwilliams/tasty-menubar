@@ -24,6 +24,8 @@
 - (id) init {
     if(self = [super initWithWindowNibName:@"Preferences"]) {
         [self setDefaults];
+        LaunchAtLoginController *launchController = [[LaunchAtLoginController alloc] init];
+        [launchController setLaunchAtLogin:YES];
     }
     return self;
 }
