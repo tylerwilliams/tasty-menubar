@@ -9,29 +9,30 @@
 #import <Cocoa/Cocoa.h>
 #import "PreferencesController.h"
 #import "AppWatcher.h"
-#import "TasteLogger.h"
+#import "TasteRecorder.h"
+#import "ASLLogger.h"
 
 @interface MenuController : NSWindowController <NSMenuDelegate> {
 	NSMenu *statusMenu;
     NSStatusItem *statusBar;
     PreferencesController *preferencesController;
     AppWatcher *appWatcher;
-    TasteLogger *tasteLogger;
+    TasteRecorder *tasteRecorder;
     IBOutlet NSMenuItem *statusItem;
+    ASLLogger *logger;
 }
 
 @property (strong, nonatomic, retain) IBOutlet NSMenu *statusMenu;
 @property (strong, nonatomic) NSStatusItem *statusBar;
 @property (strong, nonatomic) PreferencesController *preferencesController;
 @property (strong, nonatomic) AppWatcher *appWatcher;
-@property (strong, nonatomic) TasteLogger *tasteLogger;
+@property (strong, nonatomic) TasteRecorder *tasteRecorder;
 
 @property (assign) IBOutlet NSMenuItem *statusItem;
 
--(IBAction)showPreferences:(id)sender;
--(IBAction)openMyTastyHomePage:(id)sender;
-- (NSString *)windowNibName;
-- (void)windowDidLoad;
-- (id)initWithPrefsWatcher:(PreferencesController *)p withAppController:(AppWatcher *)a withtasteLogger:(TasteLogger *)n; 
-
+- (IBAction) showPreferences:(id)sender;
+- (IBAction) openMyTastyHomePage:(id)sender;
+- (NSString *) windowNibName;
+- (void) windowDidLoad;
+- (id) initWithPrefsWatcher:(PreferencesController *)p withAppController:(AppWatcher *)a withtasteRecorder:(TasteRecorder *)n withLogger:(ASLLogger *)l;
 @end

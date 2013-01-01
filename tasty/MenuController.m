@@ -19,13 +19,14 @@
 @synthesize preferencesController = _preferencesController;
 @synthesize appWatcher = _appWatcher;
 @synthesize statusItem = _statusItem;
-@synthesize tasteLogger = _tasteLogger;
+@synthesize tasteRecorder = _tasteRecorder;
 
-- (id)initWithPrefsWatcher:(PreferencesController *)p withAppController:(AppWatcher *)a withtasteLogger:(TasteLogger *)n {
+- (id)initWithPrefsWatcher:(PreferencesController *)p withAppController:(AppWatcher *)a withtasteRecorder:(TasteRecorder *)n withLogger:(ASLLogger *)l {
     if (self = [super init]) {
         preferencesController = p;
         appWatcher = a;
-        tasteLogger = n;
+        tasteRecorder = n;
+        logger = l;
         [self detectFirstRun];
     }
     return self;
@@ -61,11 +62,11 @@
 }
 
 -(void) firstStartAfterUpgradeDowngrade {
-    NSLog(@"firstStartAfterUpgradeDowngrade");
+    [logger debug:@"firstStartAfterUpgradeDowngrade"];
 }
 
 -(void) firstStartAfterFreshInstall {
-    NSLog(@"firstStartAfterFreshInstall");
+    [logger debug:@"firstStartAfterFreshInstall"];
 }
 
 -(IBAction)showPreferences:(id)sender{
@@ -98,7 +99,7 @@
 }
 
 -(IBAction) openMyTastyHomePage:(id)sender {
-    [tasteLogger openTastePage];
+    [tasteRecorder openTastePage];
 }
 
 - (void)windowDidLoad

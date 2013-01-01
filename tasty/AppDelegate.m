@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "MenuController.h"
 #import "AppWatcher.h"
-#import "TasteLogger.h"
+#import "TasteRecorder.h"
 #import "ASLLogger.h"
 #import "MoveProxy.h"
 
@@ -18,7 +18,7 @@
 @synthesize menuController;
 @synthesize preferencesController;
 @synthesize appWatcher;
-@synthesize tasteLogger;
+@synthesize tasteRecorder;
 
 - (void) killAllDefaults {
     // helper function to wipe out any NSUserDefaults and simulate a "fresh first run" in development
@@ -56,16 +56,22 @@
                                                     attributes:nil
                                                          error:&error])
         {
-            NSLog(@"Create directory error: %@", error);
+            [logger warn:[NSString stringWithFormat:@"Create directory error: %@", error]];
         }
     }
 }
 
+- (NSFileHandle *) getFileHandle: (NSString *) filePath {
+    NSFileHandle *handle = [NSFileHandle fileHandleForWritingAtPath:filePath];
+    if(handle == nil) {
+        [[NSFileManager defaultManager] createFileAtPath:filePath contents:nil attributes:nil];
+        handle = [NSFileHandle fileHandleForWritingAtPath:filePath];
+    } else {
+        [handle seekToEndOfFile];
+    }
+    return handle;
+}
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    #ifdef DEBUG
-    [self killAllDefaults];
-    #endif
-    
     /* 
      try move ourself to /Applications if we're not there;
      this call will not return if the move is successful
@@ -77,25 +83,34 @@
     NSString *logDir = [self logDirectory];
     [self mkdirP:logDir];
     
-    // setup + test logging
+    // setup logging
     [ASLLogger setFacility:[[NSBundle mainBundle] bundleIdentifier]];
-    logger = [ASLLogger loggerForModule:@"appDelegate"];
+    logger = [ASLLogger loggerForModule:@"main"];
+    // log to ~/Library/logs/Tasty/tasty.log
+    [logger addFileHandle:[self getFileHandle:[logDir stringByAppendingPathComponent:@"tasty.log"]]];
+    // log to stderr
     [logger addFileHandle:[NSFileHandle fileHandleWithStandardError]];
-    [logger addFileHandle:[NSFileHandle fileHandleForUpdatingAtPath:[logDir stringByAppendingPathComponent:@"tasty.log"]]];
+    // debug level
     logger.connection.level = ASLLoggerLevelDebug;
-    [logger debug:@"This message is a debug-level message"];
-    [logger warn:@"This message is a warn-level message"];
-    NSLog(@"starting %@ (version %@ build %@)", [[NSBundle mainBundle] bundleIdentifier],
+    
+    [logger info:[NSString stringWithFormat:@"starting %@ (version %@ build %@)", [[NSBundle mainBundle] bundleIdentifier],
           [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"],
           [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]
-          );
+          ]];
+    
+#ifdef DEBUG
+    [self killAllDefaults];
+#endif
     
     // assemble our application and start it
     preferencesController = [[PreferencesController alloc] init];
-    appWatcher = [[AppWatcher alloc] initWithPrefsController:preferencesController];
-    tasteLogger = [[TasteLogger alloc] initWithPrefsController:preferencesController];
+    appWatcher = [[AppWatcher alloc] initWithPrefsController:preferencesController withLogger:logger];
+    tasteRecorder = [[TasteRecorder alloc] initWithPrefsController:preferencesController withLogger:logger];
 	if (menuController == nil) {
-        menuController = [[MenuController alloc] initWithPrefsWatcher:preferencesController withAppController:appWatcher withtasteLogger:tasteLogger];
+        menuController = [[MenuController alloc] initWithPrefsWatcher:preferencesController
+                                                    withAppController:appWatcher
+                                                    withtasteRecorder:tasteRecorder
+                                                           withLogger:logger];
     }
 	[menuController showWindow:nil];
 }

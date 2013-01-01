@@ -17,26 +17,34 @@
 @synthesize nowPlaying;
 @synthesize nowTasting;
 
--(id) initWithPrefsController:(PreferencesController *)p {
+- (id) initWithPrefsController:(PreferencesController *)p withLogger:(ASLLogger *)l{
     if ( self = [super init] ) {
         prefController = p;
+        logger = l;
         pollInterval = [p pollInterval];
-        pollTimer = [NSTimer scheduledTimerWithTimeInterval:pollInterval
-                                                     target:self
-                                                     selector:@selector(handleTimerCallback:)
-                                                     userInfo:nil
-                                                     repeats:YES];
-        /* 
-         add the timer to different runloop modes. this allows it to run while
-         the user is viewing the menu, editing preferences, etc.
-         */
-        [[NSRunLoop mainRunLoop] addTimer:pollTimer forMode:NSRunLoopCommonModes];
         activeWatchers = [NSMutableDictionary new];
         activeTastes = [NSMutableDictionary new];
         
-        // register preference observers so that watchers are correctly enabled and disabled
-        // as preferences change, and ping our appWatcher to enable or disable the correct
-        // watchers
+        if (pollInterval > SKIPPED_THRESHOLD_SECONDS) {
+            [logger warn:[NSString stringWithFormat:@"pollInterval (%.0f) is greater than SKIPPED_THRESHOLD_SECONDS (%.0d), so I may miss skips", pollInterval, SKIPPED_THRESHOLD_SECONDS]];
+        }
+        /* 
+         make a timer, *and*
+         add the timer to different runloop modes. this allows it to run while
+         the user is viewing the menu, editing preferences, etc.
+         */
+        pollTimer = [NSTimer scheduledTimerWithTimeInterval:pollInterval
+                                                     target:self
+                                                   selector:@selector(handleTimerCallback:)
+                                                   userInfo:nil
+                                                    repeats:YES];
+        [[NSRunLoop mainRunLoop] addTimer:pollTimer forMode:NSRunLoopCommonModes];
+        
+        /*
+         register preference observers so that watchers are correctly enabled and disabled
+         as preferences change, and ping our appWatcher to enable or disable the correct
+         watchers
+         */
         NSArray *watcherKeys = [NSArray arrayWithObjects:  @"watchItunes", @"watchSpotify", @"watchRdio", nil];
         for (NSString *watcherKey in watcherKeys) {
             [[NSUserDefaultsController sharedUserDefaultsController] addObserver:self
@@ -61,10 +69,10 @@
         if (watcher != nil) {
             [activeWatchers setObject:watcher forKey:watcherClassName];
         } else {
-            NSLog(@"watcherClass for %@ NOT FOUND!", watcherClassName);
+            [logger warn:[NSString stringWithFormat:@"watcherClass for %@ NOT FOUND!", watcherClassName]];
         }
     }
-    NSLog(@"enabled %@", watcherClassName);
+    [logger debug:[NSString stringWithFormat:@"enabled %@", watcherClassName]];
 }
 
 -(void)disableWatcher:(NSString *)watcherClassName {
@@ -73,7 +81,7 @@
      that watcher for tastes + now playing info
      */
     [activeWatchers removeObjectForKey:watcherClassName];
-    NSLog(@"disabled %@", watcherClassName);
+    [logger debug:[NSString stringWithFormat:@"disabled %@", watcherClassName]];
 }
 
 -(void)enableOrDisableWatcherForPrefKey:(NSString *)prefKey {
@@ -140,8 +148,8 @@
     
     /*
      increase a playedCounter for each track in a map while it's still playing
-     flush these when the playing track changes, and inspect their values to decide 
-     if they were played or not
+     flush these when the playing track changes, and inspect the flushed track's 
+     playedCounter values to decide if they were played or not
      
      Algorithm:
      - if the playing track is NOT in the active map
@@ -165,31 +173,30 @@
     if (nil == [activeTastes objectForKey:nowPlaying]) {
         for (Taste* activeTaste in activeTastes.allKeys) {
             double playedSeconds = [[activeTastes objectForKey:activeTaste] doubleValue];
-//            NSLog(@"activeTaste: %@, playedSeconds: %f", activeTaste, playedSeconds);
+            [logger debug:[NSString stringWithFormat:@"activeTaste: %@, playedSeconds: %.1f", activeTaste, playedSeconds]];
             double playedPercentage = (playedSeconds / [[activeTaste duration] floatValue]);
-//            NSLog(@"playedPercentage: %f (%f / %f)", playedPercentage, playedSeconds, [[activeTaste duration] floatValue]);
-            [activeTaste print];
+            [logger debug:[NSString stringWithFormat:@"playedPercentage: %f (%f / %f)", playedPercentage, playedSeconds, [[activeTaste duration] floatValue]]];
             if (playedPercentage > PLAYED_THRESHOLD_PERCENTAGE || playedSeconds > PLAYED_THRESHOLD_SECONDS) {
                 [self tasteSong:activeTaste];
-//                NSLog(@"scrobble: %@", activeTaste);
+                [logger debug:[NSString stringWithFormat:@"scrobble: %@", activeTaste]];
             } else {
                 if (playedSeconds > SKIPPED_THRESHOLD_SECONDS) {
                     [activeTaste setSkip:[NSNumber numberWithBool:TRUE]];
                     [self tasteSong:activeTaste];
-//                    NSLog(@"scrobble (_SKIP_): %@", activeTaste);
+                    [logger debug:[NSString stringWithFormat:@"scrobble (_SKIP_): %@", activeTaste]];
                 } else {
-//                    NSLog(@"ignoring (skipped too fast): %@", activeTaste);
+                    [logger debug:[NSString stringWithFormat:@"ignoring (skipped too fast): %@", activeTaste]];
                 }
             }
             [activeTastes removeObjectForKey:activeTaste];
-        }        
+        }
         [activeTastes setObject:period forKey:(id <NSCopying>)nowPlaying];
     }
     else {
         double playedSeconds = [[activeTastes objectForKey:nowPlaying] doubleValue];
-//        NSLog(@"activeTaste: %@, playedSeconds: %f", nowPlaying, playedSeconds);
+        [logger debug:[NSString stringWithFormat:@"activeTaste: %@, playedSeconds: %.1f", nowPlaying, playedSeconds]];
         if (playedSeconds > [[nowPlaying duration] floatValue]) {
-//            NSLog(@"scrobble (repeat!): %@", nowPlaying);
+            [logger debug:[NSString stringWithFormat:@"scrobble (repeat!): %@", nowPlaying]];
             [self tasteSong:nowPlaying];
             playedSeconds -= [[nowPlaying duration] floatValue];
         }

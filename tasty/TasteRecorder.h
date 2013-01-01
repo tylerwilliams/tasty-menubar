@@ -1,5 +1,5 @@
 //
-//  tasteLogger.h
+//  tasteRecorder.h
 //  tasty
 //
 //  Created by Tyler Williams on 12/27/12.
@@ -9,16 +9,18 @@
 #import <Foundation/Foundation.h>
 #import "PreferencesController.h"
 #import "Taste.h"
+#import "ASLLogger.h"
 
-@interface TasteLogger : NSObject {
+@interface TasteRecorder : NSObject {
     NSString *hostName;
     NSInteger portNumber;
     PreferencesController *preferencesController;
     NSMutableData *receivedData;
-    NSNumber *isLogging;
+    NSNumber *isLogging;            // this is really a BOOL :/
+    ASLLogger *logger;
 }
 
-- (id) initWithPrefsController:(PreferencesController*)p;
+- (id) initWithPrefsController:(PreferencesController *)p withLogger:(ASLLogger *)l;
 - (NSData *) encodeDictionary:(NSDictionary*)dictionary;
 - (void) openTastePage;
 - (void) handleTasteMessage:(NSNotification *)notification;

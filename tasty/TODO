@@ -6,9 +6,12 @@ DONE - preferences window gets focus
 DONE - incognito mode must work
 DONE - ask to start at login on first launch
 DONE - re-enable MRC on non-arc classes that I heavy-handedly "fixed"
-- sparkle auto-update
+DONE - sparkle auto-update
 DONE - preferences window does not always get focus
 DONE - app does not start on login, despite being in login items...
-- coherent logging in console.app, ideally with a log dir + file
+DONE - coherent logging in console.app, with a log dir + file
 - profile and reduce memory usage! (possibly move away from ARC)
+- log tastes to sqlite, on POST callback mark them as tasted so OK if net goes away
+- about window
+- firstrun window
 

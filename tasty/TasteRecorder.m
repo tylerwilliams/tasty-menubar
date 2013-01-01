@@ -6,13 +6,14 @@
 //  Copyright (c) 2012 Tyler Williams. All rights reserved.
 //
 
-#import "TasteLogger.h"
+#import "TasteRecorder.h"
 
-@implementation TasteLogger
+@implementation TasteRecorder
 
--(id) initWithPrefsController:(PreferencesController *)p {
+- (id) initWithPrefsController:(PreferencesController *)p withLogger:(ASLLogger *)l {
     if ( self = [super init] ) {
         preferencesController = p;
+        logger = l;
         // register a listener for 'now playing' messages to update the
         // now playing menu item
         [[NSNotificationCenter defaultCenter] addObserver:self
@@ -59,26 +60,24 @@
 */
 
 - (void) connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
-    NSLog(@"didReceiveResponse");
     [receivedData setLength:0];
 }
 
 - (void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-    NSLog(@"didReceiveData");
     [receivedData appendData:data];
 }
 
 - (void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    NSLog(@"Connection failed! Error - %@ %@",
-          [error localizedDescription],
-          [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]);
+    [logger warn:[NSString stringWithFormat:@"Connection failed! Error - %@ %@",
+                  [error localizedDescription],
+                  [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]]];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     NSError *jsonDecodeError;
     NSMutableDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:receivedData options:kNilOptions error:&jsonDecodeError];
     // TODO: do something with this: either mark it played in our DB or retry
-    NSLog(@"%@", jsonDictionary);
+    [logger debug:[NSString stringWithFormat:@"server response:%@", jsonDictionary]];
 }
 
 
@@ -107,7 +106,7 @@
     if (connection) {
         receivedData = [NSMutableData new];
     } else {
-        NSLog(@"unable to make HTTP request");
+        [logger warn:@"unable to make HTTP request"];
     }
 }
 @end

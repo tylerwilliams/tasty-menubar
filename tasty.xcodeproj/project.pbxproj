@@ -15,7 +15,7 @@
 		0317BDFD1691F2A60098A17F /* PFMoveApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 0317BDFB1691F2A60098A17F /* PFMoveApplication.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		0317BE031691F46F0098A17F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0317BE021691F46F0098A17F /* Security.framework */; };
 		0317BE061691F6E70098A17F /* MoveProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0317BE051691F6E70098A17F /* MoveProxy.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		032D0CA1168C2464004EF5DB /* TasteLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 032D0CA0168C2464004EF5DB /* TasteLogger.m */; };
+		032D0CA1168C2464004EF5DB /* TasteRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 032D0CA0168C2464004EF5DB /* TasteRecorder.m */; };
 		032D0CAC168E296B004EF5DB /* NICInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 032D0CA8168E28DE004EF5DB /* NICInfo.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		032D0CAD168E296B004EF5DB /* NICInfoSummary.m in Sources */ = {isa = PBXBuildFile; fileRef = 032D0CAA168E28DE004EF5DB /* NICInfoSummary.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		03A2E9C8168FAA4100210974 /* DefaultPrefs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03A2E9C7168FAA4100210974 /* DefaultPrefs.plist */; };
@@ -69,8 +69,8 @@
 		0317BE021691F46F0098A17F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		0317BE041691F6E70098A17F /* MoveProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveProxy.h; sourceTree = "<group>"; };
 		0317BE051691F6E70098A17F /* MoveProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoveProxy.m; sourceTree = "<group>"; };
-		032D0C9F168C2463004EF5DB /* TasteLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TasteLogger.h; sourceTree = "<group>"; };
-		032D0CA0168C2464004EF5DB /* TasteLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TasteLogger.m; sourceTree = "<group>"; };
+		032D0C9F168C2463004EF5DB /* TasteRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TasteRecorder.h; sourceTree = "<group>"; };
+		032D0CA0168C2464004EF5DB /* TasteRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TasteRecorder.m; sourceTree = "<group>"; };
 		032D0CA8168E28DE004EF5DB /* NICInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NICInfo.m; sourceTree = "<group>"; };
 		032D0CA9168E28DE004EF5DB /* NICInfoSummary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NICInfoSummary.h; sourceTree = "<group>"; };
 		032D0CAA168E28DE004EF5DB /* NICInfoSummary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NICInfoSummary.m; sourceTree = "<group>"; };
@@ -244,13 +244,13 @@
 		03E92968168BC711006ABA92 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				03E92969168BC711006ABA92 /* tasty-Info.plist */,
+				03A2E9C7168FAA4100210974 /* DefaultPrefs.plist */,
 				03D298BB169255E20099EED4 /* tasty_dsa_pub.pem */,
 				0317BDD516913E190098A17F /* enicon_noretina.iconset */,
 				0317BDED169149860098A17F /* s150_inverse.png */,
 				0317BDEB169148F20098A17F /* s150.png */,
-				03A2E9C7168FAA4100210974 /* DefaultPrefs.plist */,
 				03E92985168BCCCB006ABA92 /* en_powered.png */,
-				03E92969168BC711006ABA92 /* tasty-Info.plist */,
 				03E9296A168BC712006ABA92 /* InfoPlist.strings */,
 				03E9296D168BC712006ABA92 /* main.m */,
 				03E9296F168BC712006ABA92 /* tasty-Prefix.pch */,
@@ -278,8 +278,8 @@
 				03E92996168BCD77006ABA92 /* Taste.m */,
 				03E92973168BC712006ABA92 /* AppDelegate.h */,
 				03E92974168BC712006ABA92 /* AppDelegate.m */,
-				032D0C9F168C2463004EF5DB /* TasteLogger.h */,
-				032D0CA0168C2464004EF5DB /* TasteLogger.m */,
+				032D0C9F168C2463004EF5DB /* TasteRecorder.h */,
+				032D0CA0168C2464004EF5DB /* TasteRecorder.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -378,7 +378,7 @@
 				03E9299A168BCD77006ABA92 /* RdioWatcher.m in Sources */,
 				03E9299B168BCD77006ABA92 /* SpotifyWatcher.m in Sources */,
 				03E9299C168BCD77006ABA92 /* Taste.m in Sources */,
-				032D0CA1168C2464004EF5DB /* TasteLogger.m in Sources */,
+				032D0CA1168C2464004EF5DB /* TasteRecorder.m in Sources */,
 				03A2E9CB168FAA5F00210974 /* PreferencesController.m in Sources */,
 				03AF10F6169116910069A172 /* ASLLogger.m in Sources */,
 				0317BDF61691DDE70098A17F /* LaunchAtLoginController.m in Sources */,

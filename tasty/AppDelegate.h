@@ -11,21 +11,21 @@
 @class MenuController;
 @class PreferencesController;
 @class AppWatcher;
-@class TasteLogger;
+@class TasteRecorder;
 @class ASLLogger;
 
 @interface AppDelegate : NSObject <NSApplicationDelegate> {
 	MenuController				*menuController;
 	PreferencesController       *preferencesController;
     AppWatcher                  *appWatcher;
-    TasteLogger                 *tasteLogger;
+    TasteRecorder               *tasteRecorder;
     ASLLogger                   *logger;
 }
 
 @property (strong) MenuController *menuController;
 @property (strong) PreferencesController *preferencesController;
 @property (strong) AppWatcher *appWatcher;
-@property (strong) TasteLogger *tasteLogger;
+@property (strong) TasteRecorder *tasteRecorder;
 
 @end
 
