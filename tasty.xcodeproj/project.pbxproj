@@ -23,6 +23,9 @@
 		03AF10F6169116910069A172 /* ASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 03AF10F4169116910069A172 /* ASLLogger.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		03AF10FC169136120069A172 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = 03AF10FB169136120069A172 /* TODO */; };
 		03C604E3168FAAC000A5AD99 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03C604E2168FAAC000A5AD99 /* Preferences.xib */; };
+		03D298B716924ABA0099EED4 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03D298B616924ABA0099EED4 /* Sparkle.framework */; };
+		03D298BA16924B140099EED4 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 03D298B616924ABA0099EED4 /* Sparkle.framework */; };
+		03D298BC169255E20099EED4 /* tasty_dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 03D298BB169255E20099EED4 /* tasty_dsa_pub.pem */; };
 		03E92962168BC711006ABA92 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E92961168BC711006ABA92 /* Cocoa.framework */; };
 		03E9296C168BC712006ABA92 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03E9296A168BC712006ABA92 /* InfoPlist.strings */; };
 		03E9296E168BC712006ABA92 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E9296D168BC712006ABA92 /* main.m */; };
@@ -39,6 +42,19 @@
 		03E9299C168BCD77006ABA92 /* Taste.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E92996168BCD77006ABA92 /* Taste.m */; };
 		03E9299E168BCDCE006ABA92 /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E9299D168BCDCE006ABA92 /* ScriptingBridge.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		03D298B916924B030099EED4 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				03D298BA16924B140099EED4 /* Sparkle.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0317BDD516913E190098A17F /* enicon_noretina.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; name = enicon_noretina.iconset; path = ../enicon_noretina.iconset; sourceTree = "<group>"; };
@@ -66,7 +82,9 @@
 		03AF10F5169116910069A172 /* ASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASLLogger.h; sourceTree = "<group>"; };
 		03AF10FB169136120069A172 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
 		03C604E2168FAAC000A5AD99 /* Preferences.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
-		03E9295D168BC711006ABA92 /* tasty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tasty.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		03D298B616924ABA0099EED4 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
+		03D298BB169255E20099EED4 /* tasty_dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tasty_dsa_pub.pem; sourceTree = "<group>"; };
+		03E9295D168BC711006ABA92 /* tasty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = tasty.app; path = Tasty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03E92961168BC711006ABA92 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		03E92964168BC711006ABA92 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		03E92965168BC711006ABA92 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -108,6 +126,7 @@
 				0317BE031691F46F0098A17F /* Security.framework in Frameworks */,
 				03E9299E168BCDCE006ABA92 /* ScriptingBridge.framework in Frameworks */,
 				03E92962168BC711006ABA92 /* Cocoa.framework in Frameworks */,
+				03D298B716924ABA0099EED4 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,6 +194,7 @@
 		03E92952168BC711006ABA92 = {
 			isa = PBXGroup;
 			children = (
+				03D298B616924ABA0099EED4 /* Sparkle.framework */,
 				0317BE021691F46F0098A17F /* Security.framework */,
 				03E9299D168BCDCE006ABA92 /* ScriptingBridge.framework */,
 				03E92967168BC711006ABA92 /* tasty */,
@@ -217,8 +237,6 @@
 				03E929A6168BCEE5006ABA92 /* Classes */,
 				03E92968168BC711006ABA92 /* Supporting Files */,
 				03AF10FB169136120069A172 /* TODO */,
-				0317BE041691F6E70098A17F /* MoveProxy.h */,
-				0317BE051691F6E70098A17F /* MoveProxy.m */,
 			);
 			path = tasty;
 			sourceTree = "<group>";
@@ -226,6 +244,7 @@
 		03E92968168BC711006ABA92 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				03D298BB169255E20099EED4 /* tasty_dsa_pub.pem */,
 				0317BDD516913E190098A17F /* enicon_noretina.iconset */,
 				0317BDED169149860098A17F /* s150_inverse.png */,
 				0317BDEB169148F20098A17F /* s150.png */,
@@ -242,6 +261,8 @@
 		03E929A6168BCEE5006ABA92 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				0317BE041691F6E70098A17F /* MoveProxy.h */,
+				0317BE051691F6E70098A17F /* MoveProxy.m */,
 				0317BDF71691F2590098A17F /* MoveToApplications */,
 				0317BDF31691DD900098A17F /* LaunchAtLogin */,
 				03AF10F2169116800069A172 /* ASL */,
@@ -283,6 +304,7 @@
 				03E92959168BC711006ABA92 /* Sources */,
 				03E9295A168BC711006ABA92 /* Frameworks */,
 				03E9295B168BC711006ABA92 /* Resources */,
+				03D298B916924B030099EED4 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -334,6 +356,7 @@
 				0317BDD616913E190098A17F /* enicon_noretina.iconset in Resources */,
 				0317BDEC169148F20098A17F /* s150.png in Resources */,
 				0317BDEE169149860098A17F /* s150_inverse.png in Resources */,
+				03D298BC169255E20099EED4 /* tasty_dsa_pub.pem in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,6 +467,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "tasty/tasty-Prefix.pch";
 				INFOPLIST_FILE = "tasty/tasty-Info.plist";
@@ -457,6 +484,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "tasty/tasty-Prefix.pch";
 				INFOPLIST_FILE = "tasty/tasty-Info.plist";

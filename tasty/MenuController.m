@@ -73,8 +73,7 @@
         preferencesController = [[PreferencesController alloc] initWithWindowNibName:@"Preferences"];
     }
     [preferencesController showWindow:preferencesController];
-    [[NSApp mainWindow] makeKeyAndOrderFront:preferencesController];
-    
+    [NSApp activateIgnoringOtherApps:YES]; // necessary to bring us to the foreground for some reason
 }
 
 - (NSString *)windowNibName {

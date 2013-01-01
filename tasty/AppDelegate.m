@@ -62,15 +62,22 @@
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+    #ifdef DEBUG
     [self killAllDefaults];
+    #endif
     
-    // try move ourself to /Applications if we're not there
+    /* 
+     try move ourself to /Applications if we're not there;
+     this call will not return if the move is successful
+     */
     MoveProxy *m = [MoveProxy new];
     [m moveOrDie];
     
     // make our logging directory if it doesn't yet exist
     NSString *logDir = [self logDirectory];
     [self mkdirP:logDir];
+    
+    // setup + test logging
     [ASLLogger setFacility:[[NSBundle mainBundle] bundleIdentifier]];
     logger = [ASLLogger loggerForModule:@"appDelegate"];
     [logger addFileHandle:[NSFileHandle fileHandleWithStandardError]];
@@ -78,7 +85,12 @@
     logger.connection.level = ASLLoggerLevelDebug;
     [logger debug:@"This message is a debug-level message"];
     [logger warn:@"This message is a warn-level message"];
+    NSLog(@"starting %@ (version %@ build %@)", [[NSBundle mainBundle] bundleIdentifier],
+          [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"],
+          [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]
+          );
     
+    // assemble our application and start it
     preferencesController = [[PreferencesController alloc] init];
     appWatcher = [[AppWatcher alloc] initWithPrefsController:preferencesController];
     tasteLogger = [[TasteLogger alloc] initWithPrefsController:preferencesController];

@@ -13,9 +13,9 @@
 	<key>pollingIntervalSeconds</key>
 	<integer>5</integer>
 	<key>apiHost</key>
-	<string>localhost</string>
+	<string>tasty.sandpit.us</string>
 	<key>apiPort</key>
-	<integer>8888</integer>
+	<integer>8080</integer>
 	<key>apiVersion</key>
 	<string>1</string>
 </dict>

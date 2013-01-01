@@ -34,5 +34,13 @@
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>SUEnableAutomaticChecks</key>
+	<true/>
+	<key>SUEnableSystemProfiling</key>
+	<true/>
+	<key>SUFeedURL</key>
+	<string>http://localhost:8888/static/appcast/tasty.xml</string>
+	<key>SUPublicDSAKeyFile</key>
+	<string>tasty_dsa_pub.pem</string>
 </dict>
 </plist>
