@@ -21,7 +21,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>2</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.music</string>
 	<key>LSMinimumSystemVersion</key>
@@ -39,7 +39,7 @@
 	<key>SUEnableSystemProfiling</key>
 	<true/>
 	<key>SUFeedURL</key>
-	<string>http://localhost:8888/static/appcast/tasty.xml</string>
+	<string>http://tasty.sandpit.us:8080/static/appcast/tasty.xml</string>
 	<key>SUPublicDSAKeyFile</key>
 	<string>tasty_dsa_pub.pem</string>
 </dict>

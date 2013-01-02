@@ -48,10 +48,12 @@
 }
 
 - (void)handleTasteMessage:(NSNotification *)notification {
-    if ([preferencesController getUserDefault:@"incognitoMode"]) { 
+    if (![[preferencesController getUserDefault:@"incognitoMode"] boolValue]) {
         NSDictionary *userInfo = notification.userInfo;
         Taste *toPush = [userInfo objectForKey:@"taste"];
         [self pushTaste:toPush];
+    } else {
+        [logger debug:@"Not logging taste because we're in incognitoMode!"];
     }
 }
 

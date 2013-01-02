@@ -193,16 +193,17 @@
         [activeTastes setObject:period forKey:(id <NSCopying>)nowPlaying];
     }
     else {
-        double playedSeconds = [[activeTastes objectForKey:nowPlaying] doubleValue];
-        [logger debug:[NSString stringWithFormat:@"activeTaste: %@, playedSeconds: %.1f", nowPlaying, playedSeconds]];
-        if (playedSeconds > [[nowPlaying duration] floatValue]) {
-            [logger debug:[NSString stringWithFormat:@"scrobble (repeat!): %@", nowPlaying]];
-            [self tasteSong:nowPlaying];
-            playedSeconds -= [[nowPlaying duration] floatValue];
+        Taste *activeTaste = [activeTastes.allKeys objectAtIndex:0];
+        double playedSeconds = [[activeTastes objectForKey:activeTaste] doubleValue];
+        [logger debug:[NSString stringWithFormat:@"activeTaste: %@, playedSeconds: %.1f", activeTaste, playedSeconds]];
+        if (playedSeconds > [[activeTaste duration] floatValue]) {
+            [logger debug:[NSString stringWithFormat:@"scrobble (repeat!): %@", activeTaste]];
+            [self tasteSong:activeTaste];
+            playedSeconds -= [[activeTaste duration] floatValue];
         }
         playedSeconds += [period doubleValue];
         NSNumber *playedTime = [[NSNumber alloc] initWithDouble:playedSeconds];
-        [activeTastes setObject:playedTime forKey:(id <NSCopying>)nowPlaying];
+        [activeTastes setObject:playedTime forKey:(id <NSCopying>)activeTaste];
     }
 }
 
