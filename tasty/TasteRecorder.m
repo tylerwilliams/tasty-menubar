@@ -10,10 +10,9 @@
 
 @implementation TasteRecorder
 
-- (id) initWithPrefsController:(PreferencesController *)p withLogger:(ASLLogger *)l {
+- (id) initWithPrefsController:(PreferencesController *)p {
     if ( self = [super init] ) {
         preferencesController = p;
-        logger = l;
         // register a listener for 'now playing' messages to update the
         // now playing menu item
         [[NSNotificationCenter defaultCenter] addObserver:self
@@ -41,7 +40,7 @@
                            [preferencesController getUserDefault:@"apiHost"],
                            [[preferencesController getUserDefault:@"apiPort"] integerValue],
                            [preferencesController getUserDefault:@"apiVersion"],
-                           [preferencesController macAddressString]
+                           [preferencesController getUUID]
                            ];
     NSURL *url = [ [ NSURL alloc ] initWithString:urlString];
     [[NSWorkspace sharedWorkspace] openURL:url];
@@ -53,7 +52,7 @@
         Taste *toPush = [userInfo objectForKey:@"taste"];
         [self pushTaste:toPush];
     } else {
-        [logger debug:@"Not logging taste because we're in incognitoMode!"];
+        [[ASLLogger defaultLogger] debug:@"Not logging taste because we're in incognitoMode!"];
     }
 }
 
@@ -70,7 +69,7 @@
 }
 
 - (void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    [logger warn:[NSString stringWithFormat:@"Connection failed! Error - %@ %@",
+    [[LogUtils tastyLogger] warn:[NSString stringWithFormat:@"Connection failed! Error - %@ %@",
                   [error localizedDescription],
                   [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]]];
 }
@@ -79,7 +78,7 @@
     NSError *jsonDecodeError;
     NSMutableDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:receivedData options:kNilOptions error:&jsonDecodeError];
     // TODO: do something with this: either mark it played in our DB or retry
-    [logger debug:[NSString stringWithFormat:@"server response:%@", jsonDictionary]];
+    [[LogUtils tastyLogger] debug:[NSString stringWithFormat:@"server response:%@", jsonDictionary]];
 }
 
 
@@ -88,7 +87,7 @@
                            [preferencesController getUserDefault:@"apiHost"],
                            [[preferencesController getUserDefault:@"apiPort"] integerValue],
                            [preferencesController getUserDefault:@"apiVersion"],
-                           [preferencesController macAddressString]
+                           [preferencesController getUUID]
                            ];
     NSString *jsonString = [t jsonRepresentation];
     NSURL *url = [NSURL URLWithString:urlString];
@@ -108,7 +107,7 @@
     if (connection) {
         receivedData = [NSMutableData new];
     } else {
-        [logger warn:@"unable to make HTTP request"];
+        [[LogUtils tastyLogger] warn:@"unable to make HTTP request"];
     }
 }
 @end

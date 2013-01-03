@@ -10,7 +10,7 @@
 #import "PreferencesController.h"
 #import "GenericWatcher.h"
 #import "Taste.h"
-#import "ASLLogger.h"
+#import "LogUtils.h"
 
 @interface AppWatcher : NSObject {
     double pollInterval;                    // 2
@@ -18,7 +18,6 @@
     NSMutableDictionary *activeWatchers;    // {'com.apple.itunes'=>iTunesWatcher(), 'com.spotify.client'=>SpotifyWatcher()}
     NSMutableDictionary *activeTastes;      // the tracks we're currently tracking
     PreferencesController *prefController;
-    ASLLogger *logger;
     
     Taste *nowPlaying;                      // what we're currently listening too
     Taste *nowTasting;                      // what we just tasted
@@ -27,7 +26,7 @@
 @property (readonly) Taste *nowPlaying;
 @property (readonly) Taste *nowTasting;
 
-- (id) initWithPrefsController:(PreferencesController *)p withLogger:(ASLLogger *)l;
+- (id) initWithPrefsController:(PreferencesController *)p;
 -(void)enableWatcher:(NSString *)watcherClassName;
 -(void)disableWatcher:(NSString *)watcherClassName;
 -(void)enableOrDisableWatcherForPrefKey:(NSString *)prefKey;

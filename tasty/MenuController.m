@@ -21,12 +21,11 @@
 @synthesize statusItem = _statusItem;
 @synthesize tasteRecorder = _tasteRecorder;
 
-- (id)initWithPrefsWatcher:(PreferencesController *)p withAppController:(AppWatcher *)a withtasteRecorder:(TasteRecorder *)n withLogger:(ASLLogger *)l {
+- (id)initWithPrefsWatcher:(PreferencesController *)p withAppController:(AppWatcher *)a withtasteRecorder:(TasteRecorder *)n {
     if (self = [super init]) {
         preferencesController = p;
         appWatcher = a;
         tasteRecorder = n;
-        logger = l;
         [self detectFirstRun];
     }
     return self;
@@ -62,11 +61,13 @@
 }
 
 -(void) firstStartAfterUpgradeDowngrade {
-    [logger debug:@"firstStartAfterUpgradeDowngrade"];
+    [[LogUtils tastyLogger] debug:@"firstStartAfterUpgradeDowngrade"];
 }
 
 -(void) firstStartAfterFreshInstall {
-    [logger debug:@"firstStartAfterFreshInstall"];
+    [[LogUtils tastyLogger] debug:@"firstStartAfterFreshInstall"];
+    /* if we don't have a uuid yet, create one! */
+    [preferencesController getUUID];
 }
 
 -(IBAction)showPreferences:(id)sender{

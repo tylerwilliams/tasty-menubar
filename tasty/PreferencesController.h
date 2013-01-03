@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "NICInfoSummary.h"
 #import "LaunchAtLoginController.h"
+#import "LogUtils.h"
 
 @interface PreferencesController : NSWindowController {
     NSUserDefaults *preferences;
@@ -16,6 +17,7 @@
 
 - (double) pollInterval;
 - (id) getUserDefault:(NSString *)prefKey;
-- (NSString *) macAddressString;
+- (void) setUserDefault:(NSObject *)object forKey:(NSString *)prefKey;
+- (NSString *) getUUID;
 
 @end

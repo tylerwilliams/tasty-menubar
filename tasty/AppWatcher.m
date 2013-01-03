@@ -17,16 +17,15 @@
 @synthesize nowPlaying;
 @synthesize nowTasting;
 
-- (id) initWithPrefsController:(PreferencesController *)p withLogger:(ASLLogger *)l{
+- (id) initWithPrefsController:(PreferencesController *)p {
     if ( self = [super init] ) {
         prefController = p;
-        logger = l;
         pollInterval = [p pollInterval];
         activeWatchers = [NSMutableDictionary new];
         activeTastes = [NSMutableDictionary new];
         
         if (pollInterval > SKIPPED_THRESHOLD_SECONDS) {
-            [logger warn:[NSString stringWithFormat:@"pollInterval (%.0f) is greater than SKIPPED_THRESHOLD_SECONDS (%.0d), so I may miss skips", pollInterval, SKIPPED_THRESHOLD_SECONDS]];
+            [[LogUtils tastyLogger] warn:[NSString stringWithFormat:@"pollInterval (%.0f) is greater than SKIPPED_THRESHOLD_SECONDS (%.0d), so I may miss skips", pollInterval, SKIPPED_THRESHOLD_SECONDS]];
         }
         /* 
          make a timer, *and*
@@ -69,10 +68,10 @@
         if (watcher != nil) {
             [activeWatchers setObject:watcher forKey:watcherClassName];
         } else {
-            [logger warn:[NSString stringWithFormat:@"watcherClass for %@ NOT FOUND!", watcherClassName]];
+            [[LogUtils tastyLogger] warn:[NSString stringWithFormat:@"watcherClass for %@ NOT FOUND!", watcherClassName]];
         }
     }
-    [logger debug:[NSString stringWithFormat:@"enabled %@", watcherClassName]];
+    [[LogUtils tastyLogger] debug:[NSString stringWithFormat:@"enabled %@", watcherClassName]];
 }
 
 -(void)disableWatcher:(NSString *)watcherClassName {
@@ -81,7 +80,7 @@
      that watcher for tastes + now playing info
      */
     [activeWatchers removeObjectForKey:watcherClassName];
-    [logger debug:[NSString stringWithFormat:@"disabled %@", watcherClassName]];
+    [[LogUtils tastyLogger] debug:[NSString stringWithFormat:@"disabled %@", watcherClassName]];
 }
 
 -(void)enableOrDisableWatcherForPrefKey:(NSString *)prefKey {
@@ -173,19 +172,19 @@
     if (nil == [activeTastes objectForKey:nowPlaying]) {
         for (Taste* activeTaste in activeTastes.allKeys) {
             double playedSeconds = [[activeTastes objectForKey:activeTaste] doubleValue];
-            [logger debug:[NSString stringWithFormat:@"activeTaste: %@, playedSeconds: %.1f", activeTaste, playedSeconds]];
+            [[LogUtils tastyLogger] debug:[NSString stringWithFormat:@"activeTaste: %@, playedSeconds: %.1f", activeTaste, playedSeconds]];
             double playedPercentage = (playedSeconds / [[activeTaste duration] floatValue]);
-            [logger debug:[NSString stringWithFormat:@"playedPercentage: %f (%f / %f)", playedPercentage, playedSeconds, [[activeTaste duration] floatValue]]];
+            [[LogUtils tastyLogger] debug:[NSString stringWithFormat:@"playedPercentage: %f (%f / %f)", playedPercentage, playedSeconds, [[activeTaste duration] floatValue]]];
             if (playedPercentage > PLAYED_THRESHOLD_PERCENTAGE || playedSeconds > PLAYED_THRESHOLD_SECONDS) {
                 [self tasteSong:activeTaste];
-                [logger debug:[NSString stringWithFormat:@"scrobble: %@", activeTaste]];
+                [[LogUtils tastyLogger] info:[NSString stringWithFormat:@"scrobble: %@", activeTaste]];
             } else {
                 if (playedSeconds > SKIPPED_THRESHOLD_SECONDS) {
                     [activeTaste setSkip:[NSNumber numberWithBool:TRUE]];
                     [self tasteSong:activeTaste];
-                    [logger debug:[NSString stringWithFormat:@"scrobble (_SKIP_): %@", activeTaste]];
+                    [[LogUtils tastyLogger] info:[NSString stringWithFormat:@"scrobble (_SKIP_): %@", activeTaste]];
                 } else {
-                    [logger debug:[NSString stringWithFormat:@"ignoring (skipped too fast): %@", activeTaste]];
+                    [[LogUtils tastyLogger] info:[NSString stringWithFormat:@"ignoring (skipped too fast): %@", activeTaste]];
                 }
             }
             [activeTastes removeObjectForKey:activeTaste];
@@ -195,9 +194,9 @@
     else {
         Taste *activeTaste = [activeTastes.allKeys objectAtIndex:0];
         double playedSeconds = [[activeTastes objectForKey:activeTaste] doubleValue];
-        [logger debug:[NSString stringWithFormat:@"activeTaste: %@, playedSeconds: %.1f", activeTaste, playedSeconds]];
+        [[LogUtils tastyLogger] debug:[NSString stringWithFormat:@"activeTaste: %@, playedSeconds: %.1f", activeTaste, playedSeconds]];
         if (playedSeconds > [[activeTaste duration] floatValue]) {
-            [logger debug:[NSString stringWithFormat:@"scrobble (repeat!): %@", activeTaste]];
+            [[LogUtils tastyLogger] info:[NSString stringWithFormat:@"scrobble (repeat!): %@", activeTaste]];
             [self tasteSong:activeTaste];
             playedSeconds -= [[activeTaste duration] floatValue];
         }

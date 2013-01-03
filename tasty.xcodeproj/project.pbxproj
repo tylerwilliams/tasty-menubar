@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0310DB121695DF5600C914CA /* LogUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0310DB111695DF5600C914CA /* LogUtils.m */; };
 		0317BDD616913E190098A17F /* enicon_noretina.iconset in Resources */ = {isa = PBXBuildFile; fileRef = 0317BDD516913E190098A17F /* enicon_noretina.iconset */; };
 		0317BDEC169148F20098A17F /* s150.png in Resources */ = {isa = PBXBuildFile; fileRef = 0317BDEB169148F20098A17F /* s150.png */; };
 		0317BDEE169149860098A17F /* s150_inverse.png in Resources */ = {isa = PBXBuildFile; fileRef = 0317BDED169149860098A17F /* s150_inverse.png */; };
@@ -16,8 +17,6 @@
 		0317BE031691F46F0098A17F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0317BE021691F46F0098A17F /* Security.framework */; };
 		0317BE061691F6E70098A17F /* MoveProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0317BE051691F6E70098A17F /* MoveProxy.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		032D0CA1168C2464004EF5DB /* TasteRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 032D0CA0168C2464004EF5DB /* TasteRecorder.m */; };
-		032D0CAC168E296B004EF5DB /* NICInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 032D0CA8168E28DE004EF5DB /* NICInfo.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		032D0CAD168E296B004EF5DB /* NICInfoSummary.m in Sources */ = {isa = PBXBuildFile; fileRef = 032D0CAA168E28DE004EF5DB /* NICInfoSummary.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		03A2E9C8168FAA4100210974 /* DefaultPrefs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03A2E9C7168FAA4100210974 /* DefaultPrefs.plist */; };
 		03A2E9CB168FAA5F00210974 /* PreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A2E9CA168FAA5F00210974 /* PreferencesController.m */; };
 		03AF10F6169116910069A172 /* ASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 03AF10F4169116910069A172 /* ASLLogger.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -57,6 +56,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0310DB101695DF5600C914CA /* LogUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogUtils.h; sourceTree = "<group>"; };
+		0310DB111695DF5600C914CA /* LogUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogUtils.m; sourceTree = "<group>"; };
 		0317BDD516913E190098A17F /* enicon_noretina.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; name = enicon_noretina.iconset; path = ../enicon_noretina.iconset; sourceTree = "<group>"; };
 		0317BDEB169148F20098A17F /* s150.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = s150.png; sourceTree = "<group>"; };
 		0317BDED169149860098A17F /* s150_inverse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = s150_inverse.png; sourceTree = "<group>"; };
@@ -71,10 +72,6 @@
 		0317BE051691F6E70098A17F /* MoveProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoveProxy.m; sourceTree = "<group>"; };
 		032D0C9F168C2463004EF5DB /* TasteRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TasteRecorder.h; sourceTree = "<group>"; };
 		032D0CA0168C2464004EF5DB /* TasteRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TasteRecorder.m; sourceTree = "<group>"; };
-		032D0CA8168E28DE004EF5DB /* NICInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NICInfo.m; sourceTree = "<group>"; };
-		032D0CA9168E28DE004EF5DB /* NICInfoSummary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NICInfoSummary.h; sourceTree = "<group>"; };
-		032D0CAA168E28DE004EF5DB /* NICInfoSummary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NICInfoSummary.m; sourceTree = "<group>"; };
-		032D0CAB168E28DE004EF5DB /* NICInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NICInfo.h; sourceTree = "<group>"; };
 		03A2E9C7168FAA4100210974 /* DefaultPrefs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefaultPrefs.plist; sourceTree = "<group>"; };
 		03A2E9C9168FAA5F00210974 /* PreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesController.h; sourceTree = "<group>"; };
 		03A2E9CA168FAA5F00210974 /* PreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesController.m; sourceTree = "<group>"; };
@@ -171,17 +168,6 @@
 			name = AppWatchers;
 			sourceTree = "<group>";
 		};
-		032D0CA6168E28BE004EF5DB /* NICInfo */ = {
-			isa = PBXGroup;
-			children = (
-				032D0CA8168E28DE004EF5DB /* NICInfo.m */,
-				032D0CA9168E28DE004EF5DB /* NICInfoSummary.h */,
-				032D0CAA168E28DE004EF5DB /* NICInfoSummary.m */,
-				032D0CAB168E28DE004EF5DB /* NICInfo.h */,
-			);
-			name = NICInfo;
-			sourceTree = "<group>";
-		};
 		03AF10F2169116800069A172 /* ASL */ = {
 			isa = PBXGroup;
 			children = (
@@ -261,6 +247,8 @@
 		03E929A6168BCEE5006ABA92 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				0310DB101695DF5600C914CA /* LogUtils.h */,
+				0310DB111695DF5600C914CA /* LogUtils.m */,
 				0317BE041691F6E70098A17F /* MoveProxy.h */,
 				0317BE051691F6E70098A17F /* MoveProxy.m */,
 				0317BDF71691F2590098A17F /* MoveToApplications */,
@@ -268,7 +256,6 @@
 				03AF10F2169116800069A172 /* ASL */,
 				03A2E9C9168FAA5F00210974 /* PreferencesController.h */,
 				03A2E9CA168FAA5F00210974 /* PreferencesController.m */,
-				032D0CA6168E28BE004EF5DB /* NICInfo */,
 				032D0C9D168C234A004EF5DB /* AppWatchers */,
 				03E9297E168BC74D006ABA92 /* MenuController.h */,
 				03E9297F168BC74D006ABA92 /* MenuController.m */,
@@ -367,8 +354,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				032D0CAC168E296B004EF5DB /* NICInfo.m in Sources */,
-				032D0CAD168E296B004EF5DB /* NICInfoSummary.m in Sources */,
 				03E9296E168BC712006ABA92 /* main.m in Sources */,
 				03E92975168BC712006ABA92 /* AppDelegate.m in Sources */,
 				03E92981168BC74D006ABA92 /* MenuController.m in Sources */,
@@ -385,6 +370,7 @@
 				0317BDFC1691F2A60098A17F /* NSString+SymlinksAndAliases.m in Sources */,
 				0317BDFD1691F2A60098A17F /* PFMoveApplication.m in Sources */,
 				0317BE061691F6E70098A17F /* MoveProxy.m in Sources */,
+				0310DB121695DF5600C914CA /* LogUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

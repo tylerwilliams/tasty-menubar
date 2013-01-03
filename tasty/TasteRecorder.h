@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "PreferencesController.h"
 #import "Taste.h"
-#import "ASLLogger.h"
+#import "LogUtils.h"
 
 @interface TasteRecorder : NSObject {
     NSString *hostName;
@@ -17,10 +17,9 @@
     PreferencesController *preferencesController;
     NSMutableData *receivedData;
     NSNumber *isLogging;            // this is really a BOOL :/
-    ASLLogger *logger;
 }
 
-- (id) initWithPrefsController:(PreferencesController *)p withLogger:(ASLLogger *)l;
+- (id) initWithPrefsController:(PreferencesController *)p;
 - (NSData *) encodeDictionary:(NSDictionary*)dictionary;
 - (void) openTastePage;
 - (void) handleTasteMessage:(NSNotification *)notification;

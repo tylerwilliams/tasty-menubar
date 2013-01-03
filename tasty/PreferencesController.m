@@ -39,10 +39,19 @@
     return [[NSUserDefaults standardUserDefaults] objectForKey:prefKey];
 }
 
-- (NSString *) macAddressString {
-    NICInfoSummary *summary = [[NICInfoSummary alloc] init];
-    NICInfo* wifi_info = [summary findNICInfo:@"en0"];
-    return [wifi_info getMacAddressWithSeparator:@"-"];
+- (void) setUserDefault:(NSObject *)object forKey:(NSString *)prefKey {
+    [[NSUserDefaults standardUserDefaults] setObject:object forKey:prefKey];
+}
+
+- (NSString *) getUUID {
+    NSString *uuidString = [self getUserDefault:@"UUID"];
+    NSLog(@"restored UUID: %@", uuidString);
+    if (uuidString == nil) {
+        uuidString = [[[NSUUID alloc] init] UUIDString];
+        [self setUserDefault:uuidString forKey:@"UUID"];
+        [[LogUtils tastyLogger] info:[[NSString alloc] initWithFormat:@"UUID not found! setting initial UUID to: %@", uuidString]];
+    }
+    return uuidString;
 }
 
 - (void)windowDidLoad {

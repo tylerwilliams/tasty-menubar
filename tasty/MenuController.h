@@ -10,7 +10,7 @@
 #import "PreferencesController.h"
 #import "AppWatcher.h"
 #import "TasteRecorder.h"
-#import "ASLLogger.h"
+#import "LogUtils.h"
 
 @interface MenuController : NSWindowController <NSMenuDelegate> {
 	NSMenu *statusMenu;
@@ -19,7 +19,6 @@
     AppWatcher *appWatcher;
     TasteRecorder *tasteRecorder;
     IBOutlet NSMenuItem *statusItem;
-    ASLLogger *logger;
 }
 
 @property (strong, nonatomic, retain) IBOutlet NSMenu *statusMenu;
@@ -34,5 +33,5 @@
 - (IBAction) openMyTastyHomePage:(id)sender;
 - (NSString *) windowNibName;
 - (void) windowDidLoad;
-- (id) initWithPrefsWatcher:(PreferencesController *)p withAppController:(AppWatcher *)a withtasteRecorder:(TasteRecorder *)n withLogger:(ASLLogger *)l;
+- (id) initWithPrefsWatcher:(PreferencesController *)p withAppController:(AppWatcher *)a withtasteRecorder:(TasteRecorder *)n;
 @end
