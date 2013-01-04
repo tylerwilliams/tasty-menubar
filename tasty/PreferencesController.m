@@ -43,11 +43,21 @@
     [[NSUserDefaults standardUserDefaults] setObject:object forKey:prefKey];
 }
 
+- (NSString *)oldStyleUUID {
+    CFUUIDRef theUUID = CFUUIDCreate(NULL);
+    CFStringRef string = CFUUIDCreateString(NULL, theUUID);
+    CFRelease(theUUID);
+    return (__bridge_transfer NSString *)string;
+}
+
 - (NSString *) getUUID {
     NSString *uuidString = [self getUserDefault:@"UUID"];
-    NSLog(@"restored UUID: %@", uuidString);
     if (uuidString == nil) {
         uuidString = [[[NSUUID alloc] init] UUIDString];
+        if (uuidString == nil) {
+            [[LogUtils tastyLogger] warning:@"NSUUID was nil, using old style uuid (CFUUID)"];
+            uuidString = [self oldStyleUUID];
+        }
         [self setUserDefault:uuidString forKey:@"UUID"];
         [[LogUtils tastyLogger] info:[[NSString alloc] initWithFormat:@"UUID not found! setting initial UUID to: %@", uuidString]];
     }

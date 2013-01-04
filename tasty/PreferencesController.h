@@ -18,6 +18,7 @@
 - (double) pollInterval;
 - (id) getUserDefault:(NSString *)prefKey;
 - (void) setUserDefault:(NSObject *)object forKey:(NSString *)prefKey;
+- (NSString *)oldStyleUUID;
 - (NSString *) getUUID;
 
 @end

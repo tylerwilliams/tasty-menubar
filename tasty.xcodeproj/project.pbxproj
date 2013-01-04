@@ -81,7 +81,7 @@
 		03C604E2168FAAC000A5AD99 /* Preferences.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
 		03D298B616924ABA0099EED4 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		03D298BB169255E20099EED4 /* tasty_dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tasty_dsa_pub.pem; sourceTree = "<group>"; };
-		03E9295D168BC711006ABA92 /* tasty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = tasty.app; path = Tasty.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		03E9295D168BC711006ABA92 /* Tasty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tasty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03E92961168BC711006ABA92 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		03E92964168BC711006ABA92 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		03E92965168BC711006ABA92 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -192,7 +192,7 @@
 		03E9295E168BC711006ABA92 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				03E9295D168BC711006ABA92 /* tasty.app */,
+				03E9295D168BC711006ABA92 /* Tasty.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -299,7 +299,7 @@
 			);
 			name = Tasty;
 			productName = tasty;
-			productReference = 03E9295D168BC711006ABA92 /* tasty.app */;
+			productReference = 03E9295D168BC711006ABA92 /* Tasty.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
