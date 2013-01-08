@@ -78,6 +78,7 @@
 		03AF10F4169116910069A172 /* ASLLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASLLogger.m; sourceTree = "<group>"; };
 		03AF10F5169116910069A172 /* ASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASLLogger.h; sourceTree = "<group>"; };
 		03AF10FB169136120069A172 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
+		03B14B36169C8F3200D47722 /* version.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = version.sh; sourceTree = "<group>"; };
 		03C604E2168FAAC000A5AD99 /* Preferences.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
 		03D298B616924ABA0099EED4 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		03D298BB169255E20099EED4 /* tasty_dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tasty_dsa_pub.pem; sourceTree = "<group>"; };
@@ -177,6 +178,14 @@
 			name = ASL;
 			sourceTree = "<group>";
 		};
+		03B14B35169C8F3200D47722 /* scripts */ = {
+			isa = PBXGroup;
+			children = (
+				03B14B36169C8F3200D47722 /* version.sh */,
+			);
+			path = scripts;
+			sourceTree = "<group>";
+		};
 		03E92952168BC711006ABA92 = {
 			isa = PBXGroup;
 			children = (
@@ -230,6 +239,7 @@
 		03E92968168BC711006ABA92 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				03B14B35169C8F3200D47722 /* scripts */,
 				03E92969168BC711006ABA92 /* tasty-Info.plist */,
 				03A2E9C7168FAA4100210974 /* DefaultPrefs.plist */,
 				03D298BB169255E20099EED4 /* tasty_dsa_pub.pem */,
@@ -292,6 +302,7 @@
 				03E9295A168BC711006ABA92 /* Frameworks */,
 				03E9295B168BC711006ABA92 /* Resources */,
 				03D298B916924B030099EED4 /* CopyFiles */,
+				03B14B37169C8F4200D47722 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -348,6 +359,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		03B14B37169C8F4200D47722 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "scripts/version.sh --set --plist-path \\\n\"${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH}\" --quiet";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		03E92959168BC711006ABA92 /* Sources */ = {

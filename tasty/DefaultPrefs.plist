@@ -13,7 +13,7 @@
 	<key>pollingIntervalSeconds</key>
 	<integer>5</integer>
 	<key>apiHost</key>
-	<string>tasty.sandpit.us</string>
+	<string>tastes.gd</string>
 	<key>apiPort</key>
 	<integer>8080</integer>
 	<key>apiVersion</key>
