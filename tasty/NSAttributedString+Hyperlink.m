@@ -1,16 +1,16 @@
 //
-//  NSString+Hyperlink.m
+//  NSAttributedString+Hyperlink.m
 //  tasty
 //
 //  Created by Tyler Williams on 1/19/13.
 //  Copyright (c) 2013 Tyler Williams. All rights reserved.
 //
 
-#import "NSString+Hyperlink.h"
+#import "NSAttributedString+Hyperlink.h"
 
 @implementation NSAttributedString (Hyperlink)
-+(id)hyperlinkFromString:(NSString*)inString withURL:(NSURL*)aURL
-{
+
++(id)hyperlinkFromString:(NSString*)inString withURL:(NSURL*)aURL {
     NSMutableAttributedString* attrString = [[NSMutableAttributedString alloc] initWithString: inString];
     NSRange range = NSMakeRange(0, [attrString length]);
     
@@ -24,8 +24,12 @@
     [attrString addAttribute:
      NSUnderlineStyleAttributeName value:[NSNumber numberWithInt:NSSingleUnderlineStyle] range:range];
     
+    // TBW: no fon't changing weirdness
+    [attrString addAttribute:NSFontAttributeName value:[NSFont fontWithName:@"Lucida Grande" size:13] range:range];
+    
     [attrString endEditing];
     
-    return [attrString autorelease];
+    return attrString;
 }
+
 @end

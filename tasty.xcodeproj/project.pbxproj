@@ -20,7 +20,7 @@
 		037822D016AA278F00590F83 /* AboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 037822CE16AA278F00590F83 /* AboutWindowController.xib */; };
 		037822D416AA63EE00590F83 /* AboutText.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = 037822D316AA63EE00590F83 /* AboutText.rtfd */; };
 		037822D616AA647000590F83 /* icon_512x512@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 037822D516AA647000590F83 /* icon_512x512@2x.png */; };
-		037822DC16AA697000590F83 /* NSAttributedString+Hyperlink.m in Sources */ = {isa = PBXBuildFile; fileRef = 037822DB16AA696F00590F83 /* NSAttributedString+Hyperlink.m */; };
+		037822DF16AA75FC00590F83 /* NSAttributedString+Hyperlink.m in Sources */ = {isa = PBXBuildFile; fileRef = 037822DE16AA75FC00590F83 /* NSAttributedString+Hyperlink.m */; };
 		0389835716A9B8B80032E54E /* mbicon_inverse.png in Resources */ = {isa = PBXBuildFile; fileRef = 0389835516A9B8B80032E54E /* mbicon_inverse.png */; };
 		03A2E9C8168FAA4100210974 /* DefaultPrefs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03A2E9C7168FAA4100210974 /* DefaultPrefs.plist */; };
 		03A2E9CB168FAA5F00210974 /* PreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A2E9CA168FAA5F00210974 /* PreferencesController.m */; };
@@ -81,8 +81,8 @@
 		037822CE16AA278F00590F83 /* AboutWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutWindowController.xib; sourceTree = "<group>"; };
 		037822D316AA63EE00590F83 /* AboutText.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; path = AboutText.rtfd; sourceTree = "<group>"; };
 		037822D516AA647000590F83 /* icon_512x512@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_512x512@2x.png"; sourceTree = "<group>"; };
-		037822DA16AA696F00590F83 /* NSAttributedString+Hyperlink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSAttributedString+Hyperlink.h"; path = "../NSAttributedString+Hyperlink.h"; sourceTree = "<group>"; };
-		037822DB16AA696F00590F83 /* NSAttributedString+Hyperlink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSAttributedString+Hyperlink.m"; path = "../NSAttributedString+Hyperlink.m"; sourceTree = "<group>"; };
+		037822DD16AA75FC00590F83 /* NSAttributedString+Hyperlink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Hyperlink.h"; sourceTree = "<group>"; };
+		037822DE16AA75FC00590F83 /* NSAttributedString+Hyperlink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Hyperlink.m"; sourceTree = "<group>"; };
 		0389835516A9B8B80032E54E /* mbicon_inverse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mbicon_inverse.png; sourceTree = "<group>"; };
 		03A2E9C7168FAA4100210974 /* DefaultPrefs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefaultPrefs.plist; sourceTree = "<group>"; };
 		03A2E9C9168FAA5F00210974 /* PreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesController.h; sourceTree = "<group>"; };
@@ -269,8 +269,6 @@
 		03E929A6168BCEE5006ABA92 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				037822DA16AA696F00590F83 /* NSAttributedString+Hyperlink.h */,
-				037822DB16AA696F00590F83 /* NSAttributedString+Hyperlink.m */,
 				0310DB101695DF5600C914CA /* LogUtils.h */,
 				0310DB111695DF5600C914CA /* LogUtils.m */,
 				0317BE041691F6E70098A17F /* MoveProxy.h */,
@@ -293,6 +291,8 @@
 				03E92974168BC712006ABA92 /* AppDelegate.m */,
 				032D0C9F168C2463004EF5DB /* TasteRecorder.h */,
 				032D0CA0168C2464004EF5DB /* TasteRecorder.m */,
+				037822DD16AA75FC00590F83 /* NSAttributedString+Hyperlink.h */,
+				037822DE16AA75FC00590F83 /* NSAttributedString+Hyperlink.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -419,7 +419,7 @@
 				0317BE061691F6E70098A17F /* MoveProxy.m in Sources */,
 				0310DB121695DF5600C914CA /* LogUtils.m in Sources */,
 				037822CF16AA278F00590F83 /* AboutWindowController.m in Sources */,
-				037822DC16AA697000590F83 /* NSAttributedString+Hyperlink.m in Sources */,
+				037822DF16AA75FC00590F83 /* NSAttributedString+Hyperlink.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
