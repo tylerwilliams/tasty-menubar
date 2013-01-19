@@ -17,9 +17,11 @@
 @synthesize statusBar = _statusBar;
 @synthesize statusMenu = _statusMenu;
 @synthesize preferencesController = _preferencesController;
+@synthesize aboutController = _aboutController;
 @synthesize appWatcher = _appWatcher;
 @synthesize statusItem = _statusItem;
 @synthesize tasteRecorder = _tasteRecorder;
+
 
 - (id)initWithPrefsWatcher:(PreferencesController *)p withAppController:(AppWatcher *)a withtasteRecorder:(TasteRecorder *)n {
     if (self = [super init]) {
@@ -78,6 +80,15 @@
     [NSApp activateIgnoringOtherApps:YES]; // necessary to bring us to the foreground for some reason
 }
 
+-(IBAction)showAbout:(id)sender{
+    if (!aboutController) {
+        aboutController= [[AboutWindowController alloc] initWithWindowNibName:@"AboutWindowController"];
+    }
+
+    [aboutController showWindow:aboutController];
+    [NSApp activateIgnoringOtherApps:YES]; // necessary to bring us to the foreground for some reason
+}
+
 - (NSString *)windowNibName {
 	return @"MenuController";
 }
@@ -89,14 +100,14 @@
     [appWatcher checkNowPlaying];
     // set our inverse icon
     NSBundle *bundle = [NSBundle mainBundle];
-    [self.statusBar setImage:[[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"s150_inverse" ofType:@"png"]]];
+    [self.statusBar setImage:[[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"mbicon_inverse" ofType:@"png"]]];
 
 }
 
 -(void) menuDidClose:(NSMenu *) theMenu {
     // reset to our normal icon
     NSBundle *bundle = [NSBundle mainBundle];
-    [self.statusBar setImage:[[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"s150" ofType:@"png"]]];
+    [self.statusBar setImage:[[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"mbicon" ofType:@"png"]]];
 }
 
 -(IBAction) openMyTastyHomePage:(id)sender {
@@ -110,7 +121,7 @@
     
     // set the menu bar icon
     NSBundle *bundle = [NSBundle mainBundle];
-    [self.statusBar setImage:[[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"s150" ofType:@"png"]]];
+    [self.statusBar setImage:[[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"mbicon" ofType:@"png"]]];
     [self.statusBar setMenu:self.statusMenu];
     [self.statusBar.menu setDelegate:self];
     [self.statusBar setHighlightMode:YES];

@@ -8,19 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		0310DB121695DF5600C914CA /* LogUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0310DB111695DF5600C914CA /* LogUtils.m */; };
-		0317BDD616913E190098A17F /* enicon_noretina.iconset in Resources */ = {isa = PBXBuildFile; fileRef = 0317BDD516913E190098A17F /* enicon_noretina.iconset */; };
-		0317BDEC169148F20098A17F /* s150.png in Resources */ = {isa = PBXBuildFile; fileRef = 0317BDEB169148F20098A17F /* s150.png */; };
-		0317BDEE169149860098A17F /* s150_inverse.png in Resources */ = {isa = PBXBuildFile; fileRef = 0317BDED169149860098A17F /* s150_inverse.png */; };
 		0317BDF61691DDE70098A17F /* LaunchAtLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0317BDF41691DDE70098A17F /* LaunchAtLoginController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		0317BDFC1691F2A60098A17F /* NSString+SymlinksAndAliases.m in Sources */ = {isa = PBXBuildFile; fileRef = 0317BDF91691F2A60098A17F /* NSString+SymlinksAndAliases.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		0317BDFD1691F2A60098A17F /* PFMoveApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 0317BDFB1691F2A60098A17F /* PFMoveApplication.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		0317BE031691F46F0098A17F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0317BE021691F46F0098A17F /* Security.framework */; };
 		0317BE061691F6E70098A17F /* MoveProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0317BE051691F6E70098A17F /* MoveProxy.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		032D0CA1168C2464004EF5DB /* TasteRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 032D0CA0168C2464004EF5DB /* TasteRecorder.m */; };
+		037822B816A9F8CB00590F83 /* mbicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 037822B716A9F8CB00590F83 /* mbicon.png */; };
+		037822C616A9FFA900590F83 /* tasty.iconset in Resources */ = {isa = PBXBuildFile; fileRef = 037822C516A9FFA900590F83 /* tasty.iconset */; };
+		037822CF16AA278F00590F83 /* AboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 037822CD16AA278F00590F83 /* AboutWindowController.m */; };
+		037822D016AA278F00590F83 /* AboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 037822CE16AA278F00590F83 /* AboutWindowController.xib */; };
+		037822D416AA63EE00590F83 /* AboutText.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = 037822D316AA63EE00590F83 /* AboutText.rtfd */; };
+		037822D616AA647000590F83 /* icon_512x512@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 037822D516AA647000590F83 /* icon_512x512@2x.png */; };
+		037822DC16AA697000590F83 /* NSAttributedString+Hyperlink.m in Sources */ = {isa = PBXBuildFile; fileRef = 037822DB16AA696F00590F83 /* NSAttributedString+Hyperlink.m */; };
+		0389835716A9B8B80032E54E /* mbicon_inverse.png in Resources */ = {isa = PBXBuildFile; fileRef = 0389835516A9B8B80032E54E /* mbicon_inverse.png */; };
 		03A2E9C8168FAA4100210974 /* DefaultPrefs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03A2E9C7168FAA4100210974 /* DefaultPrefs.plist */; };
 		03A2E9CB168FAA5F00210974 /* PreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A2E9CA168FAA5F00210974 /* PreferencesController.m */; };
 		03AF10F6169116910069A172 /* ASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 03AF10F4169116910069A172 /* ASLLogger.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		03AF10FC169136120069A172 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = 03AF10FB169136120069A172 /* TODO */; };
+		03B14B38169C92A300D47722 /* version.sh in Resources */ = {isa = PBXBuildFile; fileRef = 03B14B36169C8F3200D47722 /* version.sh */; };
 		03C604E3168FAAC000A5AD99 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03C604E2168FAAC000A5AD99 /* Preferences.xib */; };
 		03D298B716924ABA0099EED4 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03D298B616924ABA0099EED4 /* Sparkle.framework */; };
 		03D298BA16924B140099EED4 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 03D298B616924ABA0099EED4 /* Sparkle.framework */; };
@@ -32,7 +38,6 @@
 		03E92978168BC712006ABA92 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03E92976168BC712006ABA92 /* MainMenu.xib */; };
 		03E92981168BC74D006ABA92 /* MenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E9297F168BC74D006ABA92 /* MenuController.m */; };
 		03E92982168BC74D006ABA92 /* MenuController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03E92980168BC74D006ABA92 /* MenuController.xib */; };
-		03E92987168BCCCB006ABA92 /* en_powered.png in Resources */ = {isa = PBXBuildFile; fileRef = 03E92985168BCCCB006ABA92 /* en_powered.png */; };
 		03E92997168BCD77006ABA92 /* AppWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E92989168BCD76006ABA92 /* AppWatcher.m */; };
 		03E92998168BCD77006ABA92 /* GenericWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E9298B168BCD76006ABA92 /* GenericWatcher.m */; };
 		03E92999168BCD77006ABA92 /* iTunesWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E9298E168BCD76006ABA92 /* iTunesWatcher.m */; };
@@ -58,9 +63,6 @@
 /* Begin PBXFileReference section */
 		0310DB101695DF5600C914CA /* LogUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogUtils.h; sourceTree = "<group>"; };
 		0310DB111695DF5600C914CA /* LogUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogUtils.m; sourceTree = "<group>"; };
-		0317BDD516913E190098A17F /* enicon_noretina.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; name = enicon_noretina.iconset; path = ../enicon_noretina.iconset; sourceTree = "<group>"; };
-		0317BDEB169148F20098A17F /* s150.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = s150.png; sourceTree = "<group>"; };
-		0317BDED169149860098A17F /* s150_inverse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = s150_inverse.png; sourceTree = "<group>"; };
 		0317BDF41691DDE70098A17F /* LaunchAtLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchAtLoginController.m; sourceTree = "<group>"; };
 		0317BDF51691DDE70098A17F /* LaunchAtLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchAtLoginController.h; sourceTree = "<group>"; };
 		0317BDF81691F2A60098A17F /* NSString+SymlinksAndAliases.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SymlinksAndAliases.h"; sourceTree = "<group>"; };
@@ -72,6 +74,16 @@
 		0317BE051691F6E70098A17F /* MoveProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoveProxy.m; sourceTree = "<group>"; };
 		032D0C9F168C2463004EF5DB /* TasteRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TasteRecorder.h; sourceTree = "<group>"; };
 		032D0CA0168C2464004EF5DB /* TasteRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TasteRecorder.m; sourceTree = "<group>"; };
+		037822B716A9F8CB00590F83 /* mbicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mbicon.png; sourceTree = "<group>"; };
+		037822C516A9FFA900590F83 /* tasty.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; path = tasty.iconset; sourceTree = "<group>"; };
+		037822CC16AA278E00590F83 /* AboutWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutWindowController.h; sourceTree = "<group>"; };
+		037822CD16AA278F00590F83 /* AboutWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutWindowController.m; sourceTree = "<group>"; };
+		037822CE16AA278F00590F83 /* AboutWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutWindowController.xib; sourceTree = "<group>"; };
+		037822D316AA63EE00590F83 /* AboutText.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; path = AboutText.rtfd; sourceTree = "<group>"; };
+		037822D516AA647000590F83 /* icon_512x512@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_512x512@2x.png"; sourceTree = "<group>"; };
+		037822DA16AA696F00590F83 /* NSAttributedString+Hyperlink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSAttributedString+Hyperlink.h"; path = "../NSAttributedString+Hyperlink.h"; sourceTree = "<group>"; };
+		037822DB16AA696F00590F83 /* NSAttributedString+Hyperlink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSAttributedString+Hyperlink.m"; path = "../NSAttributedString+Hyperlink.m"; sourceTree = "<group>"; };
+		0389835516A9B8B80032E54E /* mbicon_inverse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mbicon_inverse.png; sourceTree = "<group>"; };
 		03A2E9C7168FAA4100210974 /* DefaultPrefs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefaultPrefs.plist; sourceTree = "<group>"; };
 		03A2E9C9168FAA5F00210974 /* PreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesController.h; sourceTree = "<group>"; };
 		03A2E9CA168FAA5F00210974 /* PreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesController.m; sourceTree = "<group>"; };
@@ -97,7 +109,6 @@
 		03E9297E168BC74D006ABA92 /* MenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuController.h; sourceTree = "<group>"; };
 		03E9297F168BC74D006ABA92 /* MenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuController.m; sourceTree = "<group>"; };
 		03E92980168BC74D006ABA92 /* MenuController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuController.xib; sourceTree = "<group>"; };
-		03E92985168BCCCB006ABA92 /* en_powered.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = en_powered.png; sourceTree = "<group>"; };
 		03E92988168BCD76006ABA92 /* AppWatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppWatcher.h; sourceTree = "<group>"; };
 		03E92989168BCD76006ABA92 /* AppWatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppWatcher.m; sourceTree = "<group>"; };
 		03E9298A168BCD76006ABA92 /* GenericWatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenericWatcher.h; sourceTree = "<group>"; };
@@ -239,14 +250,15 @@
 		03E92968168BC711006ABA92 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				037822D516AA647000590F83 /* icon_512x512@2x.png */,
+				037822D316AA63EE00590F83 /* AboutText.rtfd */,
+				037822C516A9FFA900590F83 /* tasty.iconset */,
+				037822B716A9F8CB00590F83 /* mbicon.png */,
+				0389835516A9B8B80032E54E /* mbicon_inverse.png */,
 				03B14B35169C8F3200D47722 /* scripts */,
 				03E92969168BC711006ABA92 /* tasty-Info.plist */,
 				03A2E9C7168FAA4100210974 /* DefaultPrefs.plist */,
 				03D298BB169255E20099EED4 /* tasty_dsa_pub.pem */,
-				0317BDD516913E190098A17F /* enicon_noretina.iconset */,
-				0317BDED169149860098A17F /* s150_inverse.png */,
-				0317BDEB169148F20098A17F /* s150.png */,
-				03E92985168BCCCB006ABA92 /* en_powered.png */,
 				03E9296A168BC712006ABA92 /* InfoPlist.strings */,
 				03E9296D168BC712006ABA92 /* main.m */,
 				03E9296F168BC712006ABA92 /* tasty-Prefix.pch */,
@@ -257,6 +269,8 @@
 		03E929A6168BCEE5006ABA92 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				037822DA16AA696F00590F83 /* NSAttributedString+Hyperlink.h */,
+				037822DB16AA696F00590F83 /* NSAttributedString+Hyperlink.m */,
 				0310DB101695DF5600C914CA /* LogUtils.h */,
 				0310DB111695DF5600C914CA /* LogUtils.m */,
 				0317BE041691F6E70098A17F /* MoveProxy.h */,
@@ -266,6 +280,8 @@
 				03AF10F2169116800069A172 /* ASL */,
 				03A2E9C9168FAA5F00210974 /* PreferencesController.h */,
 				03A2E9CA168FAA5F00210974 /* PreferencesController.m */,
+				037822CC16AA278E00590F83 /* AboutWindowController.h */,
+				037822CD16AA278F00590F83 /* AboutWindowController.m */,
 				032D0C9D168C234A004EF5DB /* AppWatchers */,
 				03E9297E168BC74D006ABA92 /* MenuController.h */,
 				03E9297F168BC74D006ABA92 /* MenuController.m */,
@@ -284,6 +300,7 @@
 		03E929A7168BCF04006ABA92 /* Interfaces */ = {
 			isa = PBXGroup;
 			children = (
+				037822CE16AA278F00590F83 /* AboutWindowController.xib */,
 				03C604E2168FAAC000A5AD99 /* Preferences.xib */,
 				03E92976168BC712006ABA92 /* MainMenu.xib */,
 				03E92980168BC74D006ABA92 /* MenuController.xib */,
@@ -347,14 +364,17 @@
 				03E9296C168BC712006ABA92 /* InfoPlist.strings in Resources */,
 				03E92978168BC712006ABA92 /* MainMenu.xib in Resources */,
 				03E92982168BC74D006ABA92 /* MenuController.xib in Resources */,
-				03E92987168BCCCB006ABA92 /* en_powered.png in Resources */,
 				03A2E9C8168FAA4100210974 /* DefaultPrefs.plist in Resources */,
 				03C604E3168FAAC000A5AD99 /* Preferences.xib in Resources */,
 				03AF10FC169136120069A172 /* TODO in Resources */,
-				0317BDD616913E190098A17F /* enicon_noretina.iconset in Resources */,
-				0317BDEC169148F20098A17F /* s150.png in Resources */,
-				0317BDEE169149860098A17F /* s150_inverse.png in Resources */,
 				03D298BC169255E20099EED4 /* tasty_dsa_pub.pem in Resources */,
+				03B14B38169C92A300D47722 /* version.sh in Resources */,
+				0389835716A9B8B80032E54E /* mbicon_inverse.png in Resources */,
+				037822B816A9F8CB00590F83 /* mbicon.png in Resources */,
+				037822C616A9FFA900590F83 /* tasty.iconset in Resources */,
+				037822D016AA278F00590F83 /* AboutWindowController.xib in Resources */,
+				037822D416AA63EE00590F83 /* AboutText.rtfd in Resources */,
+				037822D616AA647000590F83 /* icon_512x512@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +418,8 @@
 				0317BDFD1691F2A60098A17F /* PFMoveApplication.m in Sources */,
 				0317BE061691F6E70098A17F /* MoveProxy.m in Sources */,
 				0310DB121695DF5600C914CA /* LogUtils.m in Sources */,
+				037822CF16AA278F00590F83 /* AboutWindowController.m in Sources */,
+				037822DC16AA697000590F83 /* NSAttributedString+Hyperlink.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,7 +469,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
@@ -471,7 +493,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				SDKROOT = macosx;
 			};
 			name = Release;

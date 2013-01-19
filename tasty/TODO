@@ -10,8 +10,11 @@ DONE - sparkle auto-update
 DONE - preferences window does not always get focus
 DONE - app does not start on login, despite being in login items...
 DONE - coherent logging in console.app, with a log dir + file
-- profile and reduce memory usage! (possibly move away from ARC)
-- log tastes to sqlite, on POST callback mark them as tasted so OK if net goes away
-- about window
+DONE - move "check for updates..." to menu item
+DONE - about window
+DONE - add license to about window
 - firstrun window
+- make preferences for all param values
+- move all preferences and preference key names to preference controller
+- log tastes to sqlite, on POST callback mark them as tasted so OK if net goes away
 

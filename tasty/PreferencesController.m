@@ -11,7 +11,7 @@
 @implementation PreferencesController
 
 - (void) setDefaults {
-    // load the default prefs from "DefaultPrefs.plist"
+    // set the default value for unset preferences from "DefaultPrefs.plist"
     preferences = [NSUserDefaults standardUserDefaults];
     NSString *file = [[NSBundle mainBundle]
                       pathForResource:@"DefaultPrefs" ofType:@"plist"];
@@ -53,11 +53,7 @@
 - (NSString *) getUUID {
     NSString *uuidString = [self getUserDefault:@"UUID"];
     if (uuidString == nil) {
-        uuidString = [[[NSUUID alloc] init] UUIDString];
-        if (uuidString == nil) {
-            [[LogUtils tastyLogger] warning:@"NSUUID was nil, using old style uuid (CFUUID)"];
-            uuidString = [self oldStyleUUID];
-        }
+        uuidString = [self oldStyleUUID];
         [self setUserDefault:uuidString forKey:@"UUID"];
         [[LogUtils tastyLogger] info:[[NSString alloc] initWithFormat:@"UUID not found! setting initial UUID to: %@", uuidString]];
     }
